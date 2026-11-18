@@ -3,117 +3,123 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Engine study — an original Metroid-style runner</title>
+<title>Super Metroid — local ROM lab</title>
 <style>
 :root{color-scheme:dark;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#070b0a;color:#e6f2ea}
-*{box-sizing:border-box}body{margin:0;padding:32px 22px 60px;background:radial-gradient(900px 500px at 80% -10%,#0f2a20,#070b0a 65%)}
-header,main,footer{max-width:1040px;margin:0 auto}
-h1{font-size:clamp(28px,5.5vw,50px);letter-spacing:.1em;margin:0;color:#cdeed8;font-weight:500}
-.sub{color:#7f9a8b;font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-top:10px;line-height:1.9}
-.rule{border-top:1px solid #1d3327;margin:26px 0}
-.grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,1fr);gap:22px}
-@media(max-width:820px){.grid{grid-template-columns:1fr}}
-.stage{border:1px solid #264537;background:#050806;padding:10px}
-canvas{width:100%;height:auto;display:block;image-rendering:pixelated}
-.bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-button{appearance:none;background:#0f1a14;color:#dff0e5;border:1px solid #2c4b3a;border-radius:3px;padding:8px 12px;font:11px ui-monospace,monospace;letter-spacing:.1em;cursor:pointer}
+*{box-sizing:border-box}body{margin:0;padding:32px 22px 60px;background:radial-gradient(900px 500px at 80% -10%,#0d2a1e,#070b0a 65%)}
+header,main,footer{max-width:1060px;margin:0 auto}
+h1{font-size:clamp(27px,5vw,48px);letter-spacing:.1em;margin:0;color:#cdeed8;font-weight:500}
+.sub{color:#7f9a8b;font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-top:10px;line-height:1.9}
+.rule{border-top:1px solid #1d3327;margin:24px 0}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0}
+input[type=file],input[type=number]{background:#0f1a14;color:#dff0e5;border:1px solid #2c4b3a;padding:8px;font:11px ui-monospace,monospace}
+button{appearance:none;background:#0f1a14;color:#dff0e5;border:1px solid #2c4b3a;border-radius:3px;padding:8px 12px;font:11px ui-monospace,monospace;cursor:pointer}
 button:hover{background:#173325}
-.hud{display:flex;gap:18px;font-size:11px;letter-spacing:.12em;color:#9db9a9;margin:12px 0}
-.hud b{color:#d8f0dc;font-weight:500}
-.panel{border:1px solid #1d3327;padding:16px;background:#0a120e}
-h2{font-size:11px;letter-spacing:.2em;color:#7fbf92;text-transform:uppercase;margin:0 0 12px;font-weight:500}
-table{width:100%;border-collapse:collapse;font-size:11px}
-th,td{text-align:left;padding:7px 6px;border-bottom:1px solid #16271e}th{color:#688073;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
-.addr{color:#b7e3bf}.val{color:#d7b25a}
-p{font-size:12px;line-height:1.8;color:#9fbbaa}
-a{color:#b7e3bf;text-decoration:none;border-bottom:1px solid #2c5b3d}
-footer{margin-top:32px;border-top:1px solid #1d3327;padding-top:16px;font-size:10px;letter-spacing:.12em;color:#5e7466;line-height:2}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.panel{border:1px solid #1d3327;padding:16px;background:#0a120e;min-height:120px}
+h2{font-size:11px;letter-spacing:.18em;color:#7fbf92;text-transform:uppercase;margin:0 0 12px;font-weight:500}
+table{width:100%;border-collapse:collapse;font-size:11px}th,td{text-align:left;padding:6px;border-bottom:1px solid #16271e}
+th{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#688073}.k{color:#9fbbaa}.v{color:#d7b25a}
+pre{margin:0;font:11px/1.7 ui-monospace,monospace;color:#c8d9cd;white-space:pre-wrap;max-height:340px;overflow:auto}
+p{font-size:11px;line-height:1.8;color:#9fbbaa}a{color:#b7e3bf;text-decoration:none;border-bottom:1px solid #2c5b3d}
+footer{margin-top:30px;border-top:1px solid #1d3327;padding-top:16px;font-size:10px;letter-spacing:.12em;color:#5e7466;line-height:2}
+.bad{color:#e58a6a}.ok{color:#7fbf92}
 </style>
 </head><body>
-<header><h1>ENGINE STUDY</h1><div class="sub">An original platform runner built from publicly documented mechanics.<br>No ROM, no Nintendo assets, no external files.</div></header>
+<header><h1>ROM LAB</h1><div class="sub">Local static analysis of a Super Metroid ROM you supply.<br>Nothing is uploaded, stored, or shipped with this page.</div></header>
 <div class="rule"></div>
 <main>
-<div class="grid">
-<div class="stage">
-<canvas id="game" width="720" height="400" aria-label="Original platform running scene"></canvas>
-<div class="hud"><span>ENERGY <b id="energy">99</b></span><span>MISSILES <b id="missiles">05</b></span><span>AREA <b id="area">CRATERIA</b></span><span>STATE <b id="state">0x08</b></span></div>
-<div class="bar"><button id="start">Start</button><button id="fire">Fire missile</button><button id="reset">Reset</button></div>
-<p style="margin-top:14px">Arrows or A/D to move, Space or W to jump. The page reads no memory: the table on the right is a model of documented addresses, updated from this scene's own state.</p>
+<div class="bar"><input type="file" id="rom" accept=".sfc,.smc,.rom,application/octet-stream"><button id="analyze" disabled>Analyze</button>
+<span class="k">Disassemble file offset</span><input type="number" id="offset" value="32768" min="0" step="16"></div>
+<div id="status" class="panel">Load a ROM to begin.</div>
+<div class="grid" style="margin-top:16px">
+<section class="panel"><h2>Internal header</h2><div id="header"></div></section>
+<section class="panel"><h2>Save RAM layout</h2><div id="sram"></div></section>
+<section class="panel"><h2>Documented WRAM</h2><div id="wram"></div></section>
+<section class="panel"><h2>65C816 disassembly</h2><pre id="disasm">No ROM loaded.</pre></section>
 </div>
-<aside class="panel">
-<h2>Documented WRAM model</h2>
-<table><thead><tr><th>Address</th><th>Field</th><th>Value</th></tr></thead><tbody id="map"></tbody></table>
-<h2 style="margin-top:20px">Area IDs</h2>
-<p>0 Crateria · 1 Brinstar · 2 Norfair · 3 Wrecked Ship · 4 Maridia · 5 Tourian · 6 Ceres</p>
-<h2 style="margin-top:18px">Sources</h2>
-<p><a href="https://github.com/kennycason/super_metroid_auto_tracker/blob/main/docs/MEMORY_MAP.md">Memory map</a><br><a href="https://tasvideos.org/GameResources/SNES/SuperMetroid">TASVideos resources</a><br><a href="https://github.com/jdratlif/smse/blob/master/docs/sram-doc.txt">SRAM document</a></p>
-</aside>
-</div>
+<p style="margin-top:18px">Addresses come from public documentation: <a href="https://github.com/kennycason/super_metroid_auto_tracker/blob/main/docs/MEMORY_MAP.md">memory map</a>, <a href="https://github.com/jdratlif/smse/blob/master/docs/sram-doc.txt">SRAM document</a>, <a href="https://tasvideos.org/GameResources/SNES/SuperMetroid">TASVideos</a>. Disassembly is a small independent decoder, not a full emulator.</p>
 </main>
-<footer>Reverse engineering here means studying documented state layouts and reimplementing the idea independently.<br>Nothing on this page executes or contains copyrighted game data.</footer>
+<footer>Static analysis only. The page never executes ROM code and never sends the file anywhere.<br>A checksum match is byte consistency, not proof that the ROM is authentic or complete.</footer>
 <script>
 (() => {
-  const c = document.getElementById('game'), x = c.getContext('2d');
-  const AREAS = ['CRATERIA','BRINSTAR','NORFAIR','WRECKED SHIP','MARIDIA','TOURIAN','CERES'];
-  const state = {running:false, x:60, y:300, vx:0, vy:0, onGround:true, energy:99, missiles:5, area:0, shot:null, enemy:null, score:0};
-  const ground = 340;
-  function reset(){ state.x=60; state.y=300; state.vx=0; state.vy=0; state.energy=99; state.missiles=5; state.area=0; state.shot=null; state.enemy={x:560,y:300,hp:3}; state.score=0; state.running=true; }
-  function jump(){ if(state.onGround){ state.vy=-11; state.onGround=false; } }
-  function fire(){ if(state.missiles>0 && !state.shot){ state.missiles--; state.shot={x:state.x+18,y:state.y+12}; } }
-  const keys={};
-  addEventListener('keydown', e=>{ keys[e.key.toLowerCase()]=true; if([' ','arrowup','w'].includes(e.key.toLowerCase())) jump(); if(e.key==='ArrowLeft'||e.key==='ArrowRight') e.preventDefault(); });
-  addEventListener('keyup', e=>{ keys[e.key.toLowerCase()]=false; });
-  document.getElementById('start').onclick=()=>{ if(!state.running) reset(); };
-  document.getElementById('reset').onclick=reset;
-  document.getElementById('fire').onclick=fire;
-  function model(){
-    const addr=(v,s=2)=>'0x'+v.toString(16).toUpperCase().padStart(s,'0');
-    return [
-      ['7E09C2','Current energy',addr(state.energy*10)],
-      ['7E09C4','Max energy',addr(999)],
-      ['7E09C6','Missiles',addr(state.missiles)],
-      ['7E079F','Area ID',addr(state.area)],
-      ['7E079B','Room ID',addr(0x91D8,4)],
-      ['7E0998','Game state',addr(8)],
-      ['7E0AF6','Player X',addr(Math.round(state.x))],
-      ['7E0AFA','Player Y',addr(Math.round(state.y))],
-      ['7E0FCC','Boss HP',addr((state.enemy&&state.enemy.hp)||0)],
-    ];
+  const $ = id => document.getElementById(id);
+  let bytes = null;
+  $("rom").onchange = e => { const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ bytes=new Uint8Array(r.result); $("status").textContent=`Loaded ${bytes.length} bytes from ${f.name}.`; $("analyze").disabled=false; analyze(); }; r.readAsArrayBuffer(f); };
+  $("analyze").onclick = analyze;
+  $("offset").onchange = () => { if(bytes) disasm(); };
+
+  const u16=(a,o)=>a[o]|(a[o+1]<<8);
+  const hex=(v,n=4)=>'0x'+v.toString(16).toUpperCase().padStart(n,'0');
+  const txt=(a,o,n)=>String.fromCharCode(...a.slice(o,o+n)).replace(/[^\x20-\x7e]/g,'').trim();
+
+  function analyze(){
+    if(!bytes) return;
+    const lo=0x7FC0, hi=0xFFC0;
+    let base = lo, mode='LoROM';
+    if(bytes.length>hi+0x40 && u16(bytes,hi+0x16)===0x2121){ base=hi; mode='HiROM'; }
+    const title=txt(bytes,base,21), makeup=bytes[base+0x16], romType=bytes[base+0x17],
+          romSize=bytes[base+0x18], sramSize=bytes[base+0x19], region=bytes[base+0x2D];
+    let sum=0; for(let i=0;i<bytes.length;i++) sum=(sum+bytes[i])&0xFFFF;
+    const stated=u16(bytes,base+0x1E), complement=u16(bytes,base+0x1C);
+    const ok=((sum&0xFFFF)===stated) || ((complement^0xFFFF)===stated);
+    $("header").innerHTML=`<table><tbody>
+      <tr><td class="k">Mapping</td><td class="v">${mode}</td></tr>
+      <tr><td class="k">Internal title</td><td class="v">${title||'(none)'}</td></tr>
+      <tr><td class="k">Makeup byte</td><td class="v">${hex(makeup,2)}</td></tr>
+      <tr><td class="k">ROM type</td><td class="v">${hex(romType,2)}</td></tr>
+      <tr><td class="k">ROM size code</td><td class="v">${hex(romSize,2)}</td></tr>
+      <tr><td class="k">SRAM size code</td><td class="v">${hex(sramSize,2)}</td></tr>
+      <tr><td class="k">Region</td><td class="v">${region<3?'NTSC':region<8?'PAL':'other'}</td></tr>
+      <tr><td class="k">Stored checksum</td><td class="v">${hex(stated)}</td></tr>
+      <tr><td class="k">Computed sum</td><td class="v">${hex(sum)}</td></tr>
+      <tr><td class="k">Checksum gate</td><td class="v ${ok?'ok':'bad'}">${ok?'consistent':'not consistent'}</td></tr>
+    </tbody></table>`;
+    const sramRows=[
+      ['0x20','Current energy','2','1499 max'],['0x22','Maximum energy','2','little endian'],
+      ['0x24','Current missiles','2','230 max'],['0x26','Maximum missiles','2','little endian'],
+      ['0x28','Super missiles','2','50 max'],['0x2C','Power bombs','2','50 max'],
+      ['0x32','Reserve max','2','400 max'],['0x34','Reserve current','2','little endian'],
+      ['0x148-0x14D','Area maps','6','0x00 none / 0xFF owned'],
+      ['0x156','Save point','1','index within area'],['0x158','Save area','1','0 Crateria .. 5 Tourian']];
+    $("sram").innerHTML='<table><thead><tr><th>Offset</th><th>Field</th><th>Size</th></tr></thead><tbody>'+
+      sramRows.map(r=>`<tr><td class="v">${r[0]}</td><td>${r[1]}</td><td class="k">${r[2]}</td></tr>`).join('')+'</tbody></table>'+
+      '<p style="margin-top:10px">Values are read from the save slot shown by your emulator. This page does not read live memory.</p>';
+    const wram=[
+      ['7E09C2','Current energy'],['7E09C4','Maximum energy'],['7E09C6','Missiles'],
+      ['7E09A4','Collected item flags'],['7E09A8','Collected beam flags'],
+      ['7E079B','Room ID'],['7E079F','Area ID'],['7E0998','Game state'],
+      ['7E0AF6','Player X'],['7E0AFA','Player Y'],['7E0FCC','Mother Brain HP']];
+    $("wram").innerHTML='<table><thead><tr><th>Address</th><th>Meaning</th></tr></thead><tbody>'+
+      wram.map(r=>`<tr><td class="v">${r[0]}</td><td>${r[1]}</td></tr>`).join('')+'</tbody></table>'+
+      '<p style="margin-top:10px">Item bits: Varia 0x0001, Morph 0x0004, Gravity 0x0020, Hi-Jump 0x0100, Space Jump 0x0200, Bombs 0x1000, Speed Booster 0x2000.</p>';
+    disasm();
   }
-  function hud(){
-    document.getElementById('energy').textContent=String(state.energy).padStart(2,'0');
-    document.getElementById('missiles').textContent=String(state.missiles).padStart(2,'0');
-    document.getElementById('area').textContent=AREAS[state.area];
-    document.getElementById('state').textContent='0x08';
-    document.getElementById('map').innerHTML=model().map(r=>`<tr><td class="addr">${r[0]}</td><td>${r[1]}</td><td class="val">${r[2]}</td></tr>`).join('');
-  }
-  function step(){
-    if(state.running){
-      if(keys.arrowleft||keys.a) state.vx=-4;
-      else if(keys.arrowright||keys.d) state.vx=4;
-      else state.vx*=0.82;
-      state.x=Math.max(8,Math.min(680,state.x+state.vx));
-      state.vy+=0.65; state.y+=state.vy;
-      if(state.y>=ground){ state.y=ground; state.vy=0; state.onGround=true; }
-      if(state.x>460 && state.area<6) state.area=1;
-      if(state.shot){
-        state.shot.x+=9;
-        if(state.enemy && Math.abs(state.shot.x-state.enemy.x)<24 && Math.abs(state.shot.y-state.enemy.y)<30){ state.enemy.hp--; state.shot=null; state.score+=10; }
-        if(!state.shot || state.shot.x>720) state.shot=null;
-      }
-      if(state.enemy && state.enemy.hp<=0 && state.area<5){ state.area=2; state.enemy={x:560,y:300,hp:3}; }
-      if(state.energy<=0) reset();
+
+  const OP={
+    0x18:'CLC',0x38:'SEC',0x58:'CLI',0x78:'SEI',0xC2:'REP #$%02X',0xE2:'SEP #$%02X',
+    0x4C:'JMP $%04X',0x5C:'JMP $%06X',0x20:'JSR $%04X',0x22:'JSL $%06X',0x60:'RTS',0x6B:'RTL',
+    0xA9:'LDA #$%02X',0xA2:'LDX #$%02X',0xA0:'LDY #$%02X',0xAD:'LDA $%04X',0xAE:'LDX $%04X',
+    0xAC:'LDY $%04X',0x8D:'STA $%04X',0x8E:'STX $%04X',0x8C:'STY $%04X',0x99:'STA $%04X,Y',
+    0x9D:'STA $%04X,X',0xD0:'BNE $%04X',0xF0:'BEQ $%04X',0x80:'BRA $%04X',0xEA:'NOP'};
+  const LEN={0x18:0,0x38:0,0x58:0,0x78:0,0xC2:1,0xE2:1,0x4C:2,0x5C:3,0x20:2,0x22:3,0x60:0,0x6B:0,
+    0xA9:1,0xA2:1,0xA0:1,0xAD:2,0xAE:2,0xAC:2,0x8D:2,0x8E:2,0x8C:2,0x99:2,0x9D:2,0xD0:1,0xF0:1,0x80:1,0xEA:0};
+  function disasm(){
+    if(!bytes){return;}
+    let off=Math.max(0,parseInt($("offset").value)||0), lines=[];
+    for(let i=0;i<64 && off<bytes.length;i++){
+      const op=bytes[off], name=OP[op], len=LEN[op];
+      if(!name){ lines.push(`${hex(off,6)}  ${hex(op,2)}        .byte $${op.toString(16).toUpperCase()}`); off++; continue; }
+      let args=[];
+      if(len===1) args=[bytes[off+1]];
+      if(len===2) args=[u16(bytes,off+1)];
+      if(len===3) args=[(bytes[off+3]<<16)|u16(bytes,off+1)];
+      const text=name.replace(/%0([0-9])X/g,(_,w)=>args.shift().toString(16).toUpperCase().padStart(w,'0'));
+      lines.push(`${hex(off,6)}  ${hex(op,2)}  ${text}`);
+      off+=1+len;
     }
-    x.fillStyle='#050806'; x.fillRect(0,0,720,400);
-    x.fillStyle='#123326'; x.fillRect(0,ground,720,60);
-    x.fillStyle='#1d4a38'; for(let i=0;i<720;i+=48) x.fillRect(i,ground-8+i%3,26,8);
-    x.fillStyle='#b7e3bf'; x.fillRect(state.x,state.y,18,30); x.fillStyle='#d7b25a'; x.fillRect(state.x+11,state.y+6,7,8);
-    if(state.enemy){ x.fillStyle='#e58a6a'; x.fillRect(state.enemy.x,state.enemy.y,22,26); x.fillStyle='#050806'; x.fillRect(state.enemy.x+5,state.enemy.y+8,4,4); }
-    if(state.shot){ x.fillStyle='#CEDEFF'; x.fillRect(state.shot.x,state.shot.y,8,4); }
-    x.fillStyle='#61776a'; x.font='11px monospace'; x.fillText('SCORE '+state.score,12,22);
-    hud(); requestAnimationFrame(step);
+    $("disasm").textContent=lines.join('\n');
   }
-  reset(); step();
 })();
 </script>
 </body></html>
