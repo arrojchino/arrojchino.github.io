@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Engine study — an original Metroid-style runner</title>
+<style>
+:root{color-scheme:dark;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#070b0a;color:#e6f2ea}
+*{box-sizing:border-box}body{margin:0;padding:32px 22px 60px;background:radial-gradient(900px 500px at 80% -10%,#0f2a20,#070b0a 65%)}
+header,main,footer{max-width:1040px;margin:0 auto}
+h1{font-size:clamp(28px,5.5vw,50px);letter-spacing:.1em;margin:0;color:#cdeed8;font-weight:500}
+.sub{color:#7f9a8b;font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-top:10px;line-height:1.9}
+.rule{border-top:1px solid #1d3327;margin:26px 0}
+.grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,1fr);gap:22px}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.stage{border:1px solid #264537;background:#050806;padding:10px}
+canvas{width:100%;height:auto;display:block;image-rendering:pixelated}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+button{appearance:none;background:#0f1a14;color:#dff0e5;border:1px solid #2c4b3a;border-radius:3px;padding:8px 12px;font:11px ui-monospace,monospace;letter-spacing:.1em;cursor:pointer}
+button:hover{background:#173325}
+.hud{display:flex;gap:18px;font-size:11px;letter-spacing:.12em;color:#9db9a9;margin:12px 0}
+.hud b{color:#d8f0dc;font-weight:500}
+.panel{border:1px solid #1d3327;padding:16px;background:#0a120e}
+h2{font-size:11px;letter-spacing:.2em;color:#7fbf92;text-transform:uppercase;margin:0 0 12px;font-weight:500}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid #16271e}th{color:#688073;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.addr{color:#b7e3bf}.val{color:#d7b25a}
+p{font-size:12px;line-height:1.8;color:#9fbbaa}
+a{color:#b7e3bf;text-decoration:none;border-bottom:1px solid #2c5b3d}
+footer{margin-top:32px;border-top:1px solid #1d3327;padding-top:16px;font-size:10px;letter-spacing:.12em;color:#5e7466;line-height:2}
+</style>
+</head><body>
+<header><h1>ENGINE STUDY</h1><div class="sub">An original platform runner built from publicly documented mechanics.<br>No ROM, no Nintendo assets, no external files.</div></header>
+<div class="rule"></div>
+<main>
+<div class="grid">
+<div class="stage">
+<canvas id="game" width="720" height="400" aria-label="Original platform running scene"></canvas>
+<div class="hud"><span>ENERGY <b id="energy">99</b></span><span>MISSILES <b id="missiles">05</b></span><span>AREA <b id="area">CRATERIA</b></span><span>STATE <b id="state">0x08</b></span></div>
+<div class="bar"><button id="start">Start</button><button id="fire">Fire missile</button><button id="reset">Reset</button></div>
+<p style="margin-top:14px">Arrows or A/D to move, Space or W to jump. The page reads no memory: the table on the right is a model of documented addresses, updated from this scene's own state.</p>
+</div>
+<aside class="panel">
+<h2>Documented WRAM model</h2>
+<table><thead><tr><th>Address</th><th>Field</th><th>Value</th></tr></thead><tbody id="map"></tbody></table>
+<h2 style="margin-top:20px">Area IDs</h2>
+<p>0 Crateria · 1 Brinstar · 2 Norfair · 3 Wrecked Ship · 4 Maridia · 5 Tourian · 6 Ceres</p>
+<h2 style="margin-top:18px">Sources</h2>
+<p><a href="https://github.com/kennycason/super_metroid_auto_tracker/blob/main/docs/MEMORY_MAP.md">Memory map</a><br><a href="https://tasvideos.org/GameResources/SNES/SuperMetroid">TASVideos resources</a><br><a href="https://github.com/jdratlif/smse/blob/master/docs/sram-doc.txt">SRAM document</a></p>
+</aside>
+</div>
+</main>
+<footer>Reverse engineering here means studying documented state layouts and reimplementing the idea independently.<br>Nothing on this page executes or contains copyrighted game data.</footer>
+<script>
+(() => {
+  const c = document.getElementById('game'), x = c.getContext('2d');
+  const AREAS = ['CRATERIA','BRINSTAR','NORFAIR','WRECKED SHIP','MARIDIA','TOURIAN','CERES'];
+  const state = {running:false, x:60, y:300, vx:0, vy:0, onGround:true, energy:99, missiles:5, area:0, shot:null, enemy:null, score:0};
+  const ground = 340;
+  function reset(){ state.x=60; state.y=300; state.vx=0; state.vy=0; state.energy=99; state.missiles=5; state.area=0; state.shot=null; state.enemy={x:560,y:300,hp:3}; state.score=0; state.running=true; }
+  function jump(){ if(state.onGround){ state.vy=-11; state.onGround=false; } }
+  function fire(){ if(state.missiles>0 && !state.shot){ state.missiles--; state.shot={x:state.x+18,y:state.y+12}; } }
+  const keys={};
+  addEventListener('keydown', e=>{ keys[e.key.toLowerCase()]=true; if([' ','arrowup','w'].includes(e.key.toLowerCase())) jump(); if(e.key==='ArrowLeft'||e.key==='ArrowRight') e.preventDefault(); });
+  addEventListener('keyup', e=>{ keys[e.key.toLowerCase()]=false; });
+  document.getElementById('start').onclick=()=>{ if(!state.running) reset(); };
+  document.getElementById('reset').onclick=reset;
+  document.getElementById('fire').onclick=fire;
+  function model(){
+    const addr=(v,s=2)=>'0x'+v.toString(16).toUpperCase().padStart(s,'0');
+    return [
+      ['7E09C2','Current energy',addr(state.energy*10)],
+      ['7E09C4','Max energy',addr(999)],
+      ['7E09C6','Missiles',addr(state.missiles)],
+      ['7E079F','Area ID',addr(state.area)],
+      ['7E079B','Room ID',addr(0x91D8,4)],
+      ['7E0998','Game state',addr(8)],
+      ['7E0AF6','Player X',addr(Math.round(state.x))],
+      ['7E0AFA','Player Y',addr(Math.round(state.y))],
+      ['7E0FCC','Boss HP',addr((state.enemy&&state.enemy.hp)||0)],
+    ];
+  }
+  function hud(){
+    document.getElementById('energy').textContent=String(state.energy).padStart(2,'0');
+    document.getElementById('missiles').textContent=String(state.missiles).padStart(2,'0');
+    document.getElementById('area').textContent=AREAS[state.area];
+    document.getElementById('state').textContent='0x08';
+    document.getElementById('map').innerHTML=model().map(r=>`<tr><td class="addr">${r[0]}</td><td>${r[1]}</td><td class="val">${r[2]}</td></tr>`).join('');
+  }
+  function step(){
+    if(state.running){
+      if(keys.arrowleft||keys.a) state.vx=-4;
+      else if(keys.arrowright||keys.d) state.vx=4;
+      else state.vx*=0.82;
+      state.x=Math.max(8,Math.min(680,state.x+state.vx));
+      state.vy+=0.65; state.y+=state.vy;
+      if(state.y>=ground){ state.y=ground; state.vy=0; state.onGround=true; }
+      if(state.x>460 && state.area<6) state.area=1;
+      if(state.shot){
+        state.shot.x+=9;
+        if(state.enemy && Math.abs(state.shot.x-state.enemy.x)<24 && Math.abs(state.shot.y-state.enemy.y)<30){ state.enemy.hp--; state.shot=null; state.score+=10; }
+        if(!state.shot || state.shot.x>720) state.shot=null;
+      }
+      if(state.enemy && state.enemy.hp<=0 && state.area<5){ state.area=2; state.enemy={x:560,y:300,hp:3}; }
+      if(state.energy<=0) reset();
+    }
+    x.fillStyle='#050806'; x.fillRect(0,0,720,400);
+    x.fillStyle='#123326'; x.fillRect(0,ground,720,60);
+    x.fillStyle='#1d4a38'; for(let i=0;i<720;i+=48) x.fillRect(i,ground-8+i%3,26,8);
+    x.fillStyle='#b7e3bf'; x.fillRect(state.x,state.y,18,30); x.fillStyle='#d7b25a'; x.fillRect(state.x+11,state.y+6,7,8);
+    if(state.enemy){ x.fillStyle='#e58a6a'; x.fillRect(state.enemy.x,state.enemy.y,22,26); x.fillStyle='#050806'; x.fillRect(state.enemy.x+5,state.enemy.y+8,4,4); }
+    if(state.shot){ x.fillStyle='#CEDEFF'; x.fillRect(state.shot.x,state.shot.y,8,4); }
+    x.fillStyle='#61776a'; x.font='11px monospace'; x.fillText('SCORE '+state.score,12,22);
+    hud(); requestAnimationFrame(step);
+  }
+  reset(); step();
+})();
+</script>
+</body></html>
