@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SNES player — load your own ROM</title>
+<style>
+:root{color-scheme:dark;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#070b0a;color:#e6f2ea}
+*{box-sizing:border-box}body{margin:0;padding:30px 20px 60px;background:radial-gradient(900px 480px at 80% -10%,#0d2a1e,#070b0a 65%)}
+header,main,footer{max-width:1000px;margin:0 auto}
+h1{font-size:clamp(26px,5vw,44px);letter-spacing:.1em;margin:0;color:#cdeed8;font-weight:500}
+.sub{color:#7f9a8b;font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-top:10px;line-height:1.9}
+.rule{border-top:1px solid #1d3327;margin:22px 0}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:16px 0}
+input[type=file]{background:#0f1a14;color:#dff0e5;border:1px solid #2c4b3a;padding:9px;font:11px ui-monospace,monospace}
+#game{width:100%;aspect-ratio:4/3;background:#000;border:1px solid #264537;overflow:hidden}
+#game canvas{width:100%!important;height:100%!important;display:block}
+.status{font-size:11px;color:#9fbbaa;line-height:1.8;margin:12px 0}
+p{font-size:11px;line-height:1.8;color:#9fbbaa}a{color:#b7e3bf;text-decoration:none;border-bottom:1px solid #2c5b3d}
+footer{margin-top:26px;border-top:1px solid #1d3327;padding-top:14px;font-size:10px;letter-spacing:.12em;color:#5e7466;line-height:2}
+</style>
+</head><body>
+<header><h1>SNES PLAYER</h1><div class="sub">EmulatorJS loads a ROM from your own machine.<br>No game file is hosted, downloaded, or uploaded by this page.</div></header>
+<div class="rule"></div>
+<main>
+<div class="bar"><input type="file" id="rom" accept=".sfc,.smc,.fig,.gb,.gba,.nes,.zip"><span class="status" id="status">Choose a ROM file to start.</span></div>
+<div id="game"></div>
+<p style="margin-top:16px">Controls come from EmulatorJS: keyboard or on-screen pad. Save states stay in your browser. The ROM is read as a local blob and stays on your device.</p>
+<p>Docs: <a href="https://emulatorjs.org/docs/options/">EmulatorJS options</a> · <a href="https://emulatorjs.org/docs/cdn/">CDN</a></p>
+</main>
+<footer>Runs the open-source EmulatorJS SNES core from its public CDN.<br>The page contains no copyrighted game data.</footer>
+<script>
+(() => {
+  const input = document.getElementById('rom'), status = document.getElementById('status');
+  let started = false;
+  input.onchange = () => {
+    const file = input.files[0];
+    if (!file) return;
+    if (!/\.(sfc|smc|fig|nes|gba|gb|zip)$/i.test(file.name)) {
+      status.textContent = 'Unsupported extension. Use .sfc, .smc, .fig, .nes, .gba, .gb or .zip.';
+      return;
+    }
+    status.textContent = 'Loading ' + file.name + ' (' + file.size + ' bytes)…';
+    window.EJS_player = '#game';
+    window.EJS_core = 'snes';
+    window.EJS_gameName = file.name.replace(/\.[^.]+$/, '');
+    window.EJS_gameUrl = URL.createObjectURL(file);
+    window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+    window.EJS_startOnLoaded = true;
+    if (!started) {
+      started = true;
+      const s = document.createElement('script');
+      s.src = 'https://cdn.emulatorjs.org/stable/data/loader.js';
+      s.onerror = () => { status.textContent = 'Emulator CDN unavailable. Check your connection.'; };
+      document.head.appendChild(s);
+    }
+  };
+})();
+</script>
+</body></html>
