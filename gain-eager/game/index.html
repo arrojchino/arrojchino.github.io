@@ -29,9 +29,11 @@
 
   <div id="reticle"><i></i><i></i><i></i><i></i></div>
   <div id="event"></div>
+  <div id="hintbar"><span><b>WASD</b> move</span><span><b>SPACE</b> up</span><span><b>CTRL</b> down</span><span><b>F</b> takeoff</span><span><b>LMB</b> lasers</span><span><b>V</b> camera</span><span><b>ESC</b> pause</span></div>
 
   <div class="hud-bottom">
     <div class="vitals">
+      <img class="hud-portrait" src="assets/epstein.jpg" alt="" />
       <div class="bar-row"><span>HEALTH</span><div class="track"><div id="healthFill" class="fill health"></div></div><b id="healthNum">100</b></div>
       <div class="bar-row"><span>ENERGY</span><div class="track"><div id="energyFill" class="fill energy"></div></div><b id="energyNum">100</b></div>
       <div class="cooldowns">
@@ -42,12 +44,13 @@
         <span>SPEED <b id="cdSpeed">READY</b></span>
       </div>
     </div>
-    <div class="map-wrap"><label>MINIMAP</label><canvas id="minimap" width="160" height="160"></canvas></div>
+    <div class="map-wrap"><label>MINIMAP</label><canvas id="minimap" width="200" height="200"></canvas></div>
   </div>
 </div>
 
 <div id="screen">
   <section id="menu" class="panel menu-panel">
+    <img class="portrait" src="assets/epstein.jpg" alt="Booking photograph of Jeffrey Epstein" />
     <div class="eyebrow">An unexpectedly airborne arcade experience</div>
     <h1>JEFFREY<br><em>EPSTEIN</em><br>FLYING SIMULATOR</h1>
     <p>Take off, hover, blast buildings with eye lasers and land on a pad without making it weird.</p>
@@ -56,7 +59,7 @@
       <button id="controlsBtn">Controls</button>
       <button id="settingsBtn">Settings</button>
     </div>
-    <div class="fine">Three.js / WebGL2 / procedurally generated world</div>
+    <div class="fine">Photo: State of Florida, public domain via Wikimedia Commons<br />Three.js / WebGL2 / procedurally generated world</div>
   </section>
 
   <section id="pause" class="panel hidden">
@@ -86,19 +89,32 @@
 
   <section id="controls" class="panel wide hidden">
     <h2>FLIGHT MANUAL</h2>
-    <div class="keys">
-      <div><b>W A S D</b><span>Move / steer</span></div>
-      <div><b>SPACE</b><span>Ascend / jump</span></div>
-      <div><b>CTRL</b><span>Descend</span></div>
-      <div><b>SHIFT</b><span>Super speed / run</span></div>
-      <div><b>F</b><span>Take off / hover hold</span></div>
-      <div><b>MOUSE</b><span>Look and aim</span></div>
-      <div><b>LEFT CLICK</b><span>Eye lasers</span></div>
-      <div><b>RIGHT CLICK</b><span>Energy blast</span></div>
-      <div><b>Q</b><span>Shockwave</span></div>
-      <div><b>E</b><span>Blink / pad refit</span></div>
-      <div><b>V</b><span>Cycle camera</span></div>
-      <div><b>ESC</b><span>Pause</span></div>
+    <div class="manual">
+      <section class="manual-col">
+        <h3>01 / Movement</h3>
+        <div class="keyrow"><span class="keys"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span><span>Move and steer</span></div>
+        <div class="keyrow"><span class="keys"><kbd>MOUSE</kbd></span><span>Look and aim</span></div>
+        <div class="keyrow"><span class="keys"><kbd>SHIFT</kbd></span><span>Run / super speed</span></div>
+        <div class="keyrow"><span class="keys"><kbd>ESC</kbd></span><span>Pause</span></div>
+      </section>
+      <section class="manual-col">
+        <h3>02 / Flight</h3>
+        <div class="keyrow"><span class="keys"><kbd>SPACE</kbd></span><span>Ascend / jump</span></div>
+        <div class="keyrow"><span class="keys"><kbd>CTRL</kbd></span><span>Descend</span></div>
+        <div class="keyrow"><span class="keys"><kbd>F</kbd></span><span>Take off / hover hold</span></div>
+        <div class="keyrow"><span class="keys"><kbd>V</kbd></span><span>Cycle camera mode</span></div>
+      </section>
+      <section class="manual-col">
+        <h3>03 / Weapons</h3>
+        <div class="keyrow"><span class="keys"><kbd>LMB</kbd></span><span>Eye lasers</span></div>
+        <div class="keyrow"><span class="keys"><kbd>RMB</kbd></span><span>Energy blast</span></div>
+        <div class="keyrow"><span class="keys"><kbd>Q</kbd></span><span>Shockwave</span></div>
+        <div class="keyrow"><span class="keys"><kbd>E</kbd></span><span>Blink / pad refit</span></div>
+      </section>
+      <section class="manual-note">
+        <h3>Field notes</h3>
+        <p>Hold the lasers: the beams stay on while you have energy. Blink near an amber landing pad to refit instead of teleporting. Every ability drains the amber bar; it recharges on its own.</p>
+      </section>
     </div>
     <button id="closeControls">Back</button>
   </section>

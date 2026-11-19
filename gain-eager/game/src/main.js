@@ -47,6 +47,11 @@ const audio = new AudioEngine();
 const particles = new Particles(scene);
 const world = new World(scene);
 const character = new Character(scene);
+new THREE.TextureLoader().load('assets/epstein-face.png', tex => {
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  character.setPhoto(tex);
+});
 const flight = new Flight();
 const cameraRig = new CameraRig(camera);
 const abilities = new Abilities(scene, camera);

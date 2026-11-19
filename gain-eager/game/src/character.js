@@ -122,6 +122,17 @@ export class Character {
       shoe.position.set(0, -.45, .06);
     }
     this.group.traverse(o => { if (o.isMesh) o.castShadow = true; });
+    // Optional real photoportrait overlay (public-domain booking photograph).
+    const FACE_PARTS = ['eyeWhite','pupil','brow','glasses','lens','eyeGlow','bridge','nose','mouth','hair','hairSide'];
+    this.faceParts = [];
+    this.group.traverse(o => { if (o.isMesh && FACE_PARTS.includes(o.name)) this.faceParts.push(o); });
+    this.photoPlane = new THREE.Mesh(
+      new THREE.PlaneGeometry(.36, .46),
+      new THREE.MeshBasicMaterial({ transparent: true, depthWrite: false, side: THREE.DoubleSide, toneMapped: false })
+    );
+    this.photoPlane.position.set(0, .01, .205);
+    this.photoPlane.visible = false;
+    head.add(this.photoPlane);
     scene.add(this.group);
 
     this._buildClips();
@@ -173,7 +184,15 @@ export class Character {
     this.current = name;
   }
 
+  setPhoto(texture) {
+    this.photoPlane.material.map = texture;
+    this.photoPlane.material.needsUpdate = true;
+    this.photoPlane.visible = true;
+    this.faceParts.forEach(m => { m.visible = false; });
+  }
+
   setFiring(on) {
+    if (this.photoPlane && this.photoPlane.visible) return;
     this.glowL.visible = this.glowR.visible = on;
   }
 

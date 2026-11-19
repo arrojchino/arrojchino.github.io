@@ -8,7 +8,7 @@ export class HUD {
     this.el = {};
     for (const id of ['alt','spd','status','healthFill','energyFill','cameraMode','fps','reticle',
                       'minimap','event','screen','menu','pause','settings','controls','bokehState',
-                      'healthNum','energyNum','cdLaser','cdBlast','cdShock','cdBlink','cdSpeed']) {
+                      'healthNum','energyNum','cdLaser','cdBlast','cdShock','cdBlink','cdSpeed','hintbar']) {
       this.el[id] = $(id);
     }
     this.map = this.el.minimap.getContext('2d');
@@ -65,24 +65,55 @@ export class HUD {
     const ev = state.events[state.events.length - 1];
     if (ev) { this.el.event.textContent = ev.text; this.el.event.style.opacity = state.time - ev.at < 2.4 ? '1' : '0'; }
 
-    // minimap: 2D top-down, drawn every third frame
-    if (++this.mapTick % 3 === 0 && world) {
-      const c = this.map, S = 160, R = 78, scale = R / 320;
+    if (state.time > 9 && this.el.hintbar) this.el.hintbar.classList.add('hidden');
+
+    // radar: clipped disc, water/terrain sample, structures, pads, sweep and heading cone
+    if (++this.mapTick % 2 === 0 && world) {
+      const c = this.map, S = 200, R = 94, scale = R / 340;
       c.clearRect(0, 0, S, S);
-      c.fillStyle = 'rgba(8,14,22,.82)'; c.fillRect(0, 0, S, S);
-      c.strokeStyle = 'rgba(160,190,210,.18)'; c.beginPath(); c.arc(S/2,S/2,R,0,7); c.stroke();
-      c.save(); c.translate(S/2,S/2); c.rotate(-pl.yaw);
+      c.save();
+      c.beginPath(); c.arc(S/2, S/2, R, 0, 7); c.clip();
+      c.fillStyle = '#0a121b'; c.fillRect(0, 0, S, S);
+      for (let gy = -8; gy <= 8; gy++) for (let gx = -8; gx <= 8; gx++) {
+        const wx = pl.pos.x + gx * 42, wz = pl.pos.z + gy * 42;
+        if (world.heightAt(wx, wz) < CONFIG.world.waterY) {
+          const dx = (wx - pl.pos.x) * scale, dy = (wz - pl.pos.z) * scale;
+          c.fillStyle = 'rgba(38,110,150,.30)';
+          c.fillRect(S/2 + dx - 21*scale, S/2 + dy - 21*scale, 42*scale + 1, 42*scale + 1);
+        }
+      }
+      c.strokeStyle = 'rgba(150,185,205,.14)'; c.lineWidth = 1;
+      for (let rr = R/3; rr <= R; rr += R/3) { c.beginPath(); c.arc(S/2, S/2, rr, 0, 7); c.stroke(); }
+      c.beginPath(); c.moveTo(S/2,0); c.lineTo(S/2,S); c.moveTo(0,S/2); c.lineTo(S,S/2); c.stroke();
+
+      c.save(); c.translate(S/2, S/2); c.rotate(-pl.yaw);
       for (const r of world.records) {
         if (!r.alive) continue;
-        const dx = (r.x - pl.pos.x)*scale, dy = (r.z - pl.pos.z)*scale;
-        if (dx*dx+dy*dy > R*R) continue;
-        c.fillStyle = r.type === 'pad' ? '#ffb547' : 'rgba(190,205,220,.5)';
-        const s = r.type === 'pad' ? 3.6 : 2;
-        c.fillRect(dx - s/2, dy - s/2, s, s);
+        const dx = (r.x - pl.pos.x) * scale, dy = (r.z - pl.pos.z) * scale;
+        if (dx*dx + dy*dy > R*R) continue;
+        if (r.type === 'pad') {
+          const pulse = .6 + .4 * Math.sin(state.time * 4);
+          c.strokeStyle = 'rgba(255,181,71,' + pulse + ')'; c.lineWidth = 1.5;
+          c.beginPath(); c.arc(dx, dy, 5, 0, 7); c.stroke();
+          c.fillStyle = '#ffb547'; c.beginPath(); c.arc(dx, dy, 2, 0, 7); c.fill();
+        } else if (r.type === 'building') {
+          c.fillStyle = 'rgba(185,205,220,.58)'; c.fillRect(dx - 2, dy - 2, 4, 4);
+        }
       }
       c.restore();
-      c.fillStyle = '#ff5a3c'; c.beginPath(); c.arc(S/2,S/2,3.2,0,7); c.fill();
-      c.strokeStyle = 'rgba(255,90,60,.45)'; c.beginPath(); c.moveTo(S/2,S/2); c.lineTo(S/2,S/2-10); c.stroke();
+
+      const a = state.time * .9;
+      c.strokeStyle = 'rgba(120,210,255,.35)';
+      c.beginPath(); c.moveTo(S/2, S/2); c.lineTo(S/2 + Math.cos(a)*R, S/2 + Math.sin(a)*R); c.stroke();
+      c.save(); c.translate(S/2, S/2); c.rotate(-pl.yaw);
+      c.fillStyle = 'rgba(255,90,60,.16)';
+      c.beginPath(); c.moveTo(0,0); c.arc(0,0,20,-.45,.45); c.closePath(); c.fill();
+      c.fillStyle = '#ff5a3c';
+      c.beginPath(); c.moveTo(0,-9); c.lineTo(6,7); c.lineTo(0,3); c.lineTo(-6,7); c.closePath(); c.fill();
+      c.restore();
+      c.restore();
+      c.fillStyle = '#ffb547'; c.font = '9px ui-monospace,monospace'; c.fillText('N', S/2 - 3, 13);
+      c.fillStyle = 'rgba(190,210,225,.65)'; c.fillText('340 m', 10, S - 10);
     }
   }
 }
