@@ -110,10 +110,16 @@ export class Abilities {
   }
 
   _teleport(ctx) {
-    if (state.cooldowns.teleport > 0 || state.player.energy < AB.teleportEnergy) return;
+    const pl = state.player;
+    const pad = ctx.world.pads.find(p => Math.hypot(p.x - pl.pos.x, p.z - pl.pos.z) < 7 && Math.abs(p.y - pl.pos.y) < 5);
+    if (pad) {
+      pl.energy = CONFIG.player.maxEnergy;
+      pl.health = Math.min(CONFIG.player.maxHealth, pl.health + 25);
+      ctx.audio.play('ui'); emit('Pad refit'); return;
+    }
+    if (state.cooldowns.teleport > 0 || pl.energy < AB.teleportEnergy) return;
     state.cooldowns.teleport = AB.teleportCooldown;
     state.player.energy -= AB.teleportEnergy;
-    const pl = state.player;
     ctx.particles.burst({x:pl.pos.x,y:pl.pos.y+1,z:pl.pos.z}, [.6,.4,1], 40, 9, .5, .6);
     ctx.camera.getWorldDirection(this.dir);
     pl.pos.x += this.dir.x * 18; pl.pos.y += this.dir.y * 12 + 2; pl.pos.z += this.dir.z * 18;
