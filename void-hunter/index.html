@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Void Hunter — Burrower Protocol</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center;
+    background: #05060d; color: #e8ecff;
+    font: 14px/1.4 "Segoe UI", system-ui, sans-serif;
+  }
+  #wrap { width: min(96vw, 960px); }
+  h1 { font-size: 18px; letter: 0; margin: 0 0 8px; text-align: center; font-weight: 600; }
+  h1 span { color: #6ee7ff; }
+  canvas {
+    display: block; width: 100%; height: auto; background: #0a0d1c;
+    border: 1px solid #1d2440; border-radius: 10px;
+  }
+  #hint { text-align: center; color: #8b93b8; margin-top: 8px; }
+  kbd {
+    background: #141a30; border: 1px solid #2a3358; border-bottom-width: 2px;
+    border-radius: 4px; padding: 1px 6px; font: 12px/1 ui-monospace, monospace; color: #cdd6ff;
+  }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <h1>VOID HUNTER <span>// BURROWER PROTOCOL</span></h1>
+  <canvas id="game" width="960" height="540"></canvas>
+  <div id="hint">
+    <kbd>A</kbd>/<kbd>D</kbd> or <kbd>&#8592;</kbd>/<kbd>&#8594;</kbd> move &nbsp;
+    <kbd>Space</kbd> jump &nbsp; <kbd>J</kbd> or <kbd>X</kbd> shoot &nbsp; <kbd>R</kbd> restart
+  </div>
+</div>
+<script>
+(() => {
+  "use strict";
+  const cv = document.getElementById("game");
+  const ctx = cv.getContext("2d");
+  const W = cv.width, H = cv.height, GROUND = 470;
+
+  const keys = Object.create(null);
+  const pressed = Object.create(null);
+  addEventListener("keydown", e => {
+    if (["ArrowLeft","ArrowRight","ArrowUp","ArrowDown","Space"].includes(e.code)) e.preventDefault();
+    if (!keys[e.code]) pressed[e.code] = true;
+    keys[e.code] = true;
+  });
+  addEventListener("keyup", e => { keys[e.code] = false; });
+
+  const rand = (a, b) => a + Math.random() * (b - a);
+
+  const stars = Array.from({ length: 90 }, () => ({
+    x: Math.random() * W, y: Math.random() * (GROUND - 40),
+    r: rand(0.4, 1.6), s: rand(0.05, 0.35)
+  }));
+
+  const game = {
+    state: "title", t: 0, shake: 0, flash: 0,
+    player: null, boss: null, shots: [], enemyShots: [], parts: [],
+    msg: "", msgT: 0
+  };
+  window.__game = game;
+
+  function reset() {
+    game.player = {
+      x: 120, y: GROUND, w: 30, h: 44, vx: 0, vy: 0,
+      hp: 100, maxHp: 100, onGround: true, face: 1, cool: 0, inv: 0
+    };
+    game.boss = {
+      x: 720, y: GROUND, w: 150, h: 165, vx: 0, vy: 0,
+      hp: 200, maxHp: 200, face: -1, onGround: true,
+      mouth: 0, mouthMax: 0, spit: 2.2, slam: 5.0, jumping: false, hurt: 0
+    };
+    game.shots = []; game.enemyShots = []; game.parts = [];
+    game.state = "play"; game.t = 0; game.msg = ""; game.msgT = 0;
+  }
+
+  function startTitle() { game.state = "title"; game.player = null; game.boss = null; game.shots = []; game.enemyShots = []; game.parts = []; }
+
+  function burst(x, y, n, color, speed = 3) {
+    for (let i = 0; i < n; i++) {
+      const a = rand(0, Math.PI * 2), s = rand(0.5, speed);
+      game.parts.push({ x, y, vx: Math.cos(a) * s, vy: Math.sin(a) * s - 1, life: rand(20, 45), color });
+    }
+  }
+
+  function shoot() {
+    const p = game.player;
+    if (p.cool > 0 || game.shots.length >= 5) return;
+    p.cool = 0.16;
+    game.shots.push({ x: p.x + p.w / 2 + p.face * 18, y: p.y + 16, vx: p.face * 9, vy: 0, r: 4, dmg: 10 });
+  }
+
+  function hurtPlayer(dmg) {
+    const p = game.player;
+    if (p.inv > 0) return;
+    p.hp -= dmg; p.inv = 0.9; game.shake = 10; game.flash = 0.35;
+    burst(p.x + p.w / 2, p.y + p.h / 2, 14, "#ff5d7a");
+    if (p.hp <= 0) { p.hp = 0; game.state = "lose"; game.msg = "HUNTER DOWN"; game.msgT = 0; }
+  }
+
+  function hurtBoss(dmg, x, y) {
+    const b = game.boss;
+    b.hp -= dmg; b.hurt = 0.15; game.shake = Math.max(game.shake, 4);
+    burst(x, y, 8, "#ffd166");
+    if (b.hp <= 0) {
+      b.hp = 0; game.state = "win"; game.msg = "TARGET ELIMINATED"; game.msgT = 0;
+      burst(b.x + b.w / 2, b.y + b.h / 2, 60, "#6ee7ff", 6);
+      burst(b.x + b.w / 2, b.y + b.h / 2, 40, "#ff9f1c", 5);
+    }
+  }
+
+  function update(dt) {
+    game.t += dt;
+    if (game.shake > 0) game.shake = Math.max(0, game.shake - dt * 30);
+    if (game.flash > 0) game.flash = Math.max(0, game.flash - dt);
+
+    if (game.state === "title") {
+      if (pressed.Space || pressed.KeyJ || pressed.Enter) reset();
+      return;
+    }
+    if (game.state === "win" || game.state === "lose") {
+      game.msgT += dt;
+      if (pressed.KeyR || pressed.Enter) reset();
+      updateParts(dt);
+      return;
+    }
+
+    const p = game.player, b = game.boss;
+
+    // player input
+    const left = keys.ArrowLeft || keys.KeyA;
+    const right = keys.ArrowRight || keys.KeyD;
+    p.vx = (right ? 3.6 : 0) - (left ? 3.6 : 0);
+    if (p.vx) p.face = Math.sign(p.vx);
+    if ((pressed.Space || pressed.ArrowUp || pressed.KeyW) && p.onGround) { p.vy = -12.5; p.onGround = false; }
+    if (pressed.KeyJ || pressed.KeyX) shoot();
+    p.cool = Math.max(0, p.cool - dt);
+    p.inv = Math.max(0, p.inv - dt);
+
+    // physics
+    p.vy += 0.62; p.x += p.vx; p.y += p.vy;
+    if (p.y >= GROUND) { p.y = GROUND; p.vy = 0; p.onGround = true; }
+    p.x = Math.max(8, Math.min(W - p.w - 8, p.x));
+
+    // boss AI
+    b.face = p.x + p.w / 2 < b.x + b.w / 2 ? -1 : 1;
+    b.hurt = Math.max(0, b.hurt - dt);
+    b.spit -= dt; b.slam -= dt;
+    if (b.mouth > 0) b.mouth = Math.max(0, b.mouth - dt);
+
+    if (b.spit <= 0) {
+      b.spit = rand(1.8, 2.8);
+      b.mouth = 0.8; b.mouthMax = 0.8;
+      const bx = b.x + b.w / 2 + b.face * 30, by = b.y + 40;
+      for (let i = -1; i <= 1; i++) {
+        game.enemyShots.push({ x: bx, y: by, vx: b.face * rand(3.2, 4.2), vy: i * rand(1.2, 2.0) - 1.2, r: 7 });
+      }
+    }
+    if (b.slam <= 0 && !b.jumping) {
+      b.slam = rand(5.5, 7.5);
+      b.jumping = true;
+      b.vy = -11; b.vx = Math.sign(p.x - b.x) * 4.2;
+      b.onGround = false;
+    }
+    if (b.jumping) {
+      b.vy += 0.6; b.x += b.vx; b.y += b.vy;
+      if (b.y >= GROUND) {
+        b.y = GROUND; b.vy = 0; b.vx = 0; b.jumping = false; b.onGround = true;
+        game.shake = Math.max(game.shake, 12);
+        burst(b.x + b.w / 2, GROUND, 24, "#8b93b8", 4);
+        if (Math.abs(p.x + p.w / 2 - (b.x + b.w / 2)) < 90 && p.onGround) hurtPlayer(28);
+      }
+      b.x = Math.max(360, Math.min(W - b.w - 20, b.x));
+    } else {
+      // idle drift toward player
+      const target = Math.max(360, Math.min(W - b.w - 20, p.x + (p.x < b.x ? 220 : -220)));
+      b.x += Math.sign(target - b.x) * 0.6;
+    }
+
+    // player shots
+    for (let i = game.shots.length - 1; i >= 0; i--) {
+      const s = game.shots[i];
+      s.x += s.vx;
+      if (s.x < -20 || s.x > W + 20) { game.shots.splice(i, 1); continue; }
+      if (s.x + s.r > b.x && s.x - s.r < b.x + b.w && s.y > b.y && s.y < b.y + b.h) {
+        const mouthOpen = b.mouth > 0.2;
+        const mx = b.x + b.w / 2 + b.face * 20, my = b.y + 45;
+        const weak = mouthOpen && Math.hypot(s.x - mx, s.y - my) < 46;
+        hurtBoss(weak ? s.dmg * 2 : s.dmg, s.x, s.y);
+        game.shots.splice(i, 1);
+      }
+    }
+
+    // enemy shots
+    for (let i = game.enemyShots.length - 1; i >= 0; i--) {
+      const s = game.enemyShots[i];
+      s.vy += 0.12; s.x += s.vx; s.y += s.vy;
+      if (s.y > GROUND + 20 || s.x < -30 || s.x > W + 30) { game.enemyShots.splice(i, 1); continue; }
+      if (s.x + s.r > p.x && s.x - s.r < p.x + p.w && s.y + s.r > p.y && s.y - s.r < p.y + p.h) {
+        hurtPlayer(18); game.enemyShots.splice(i, 1);
+      }
+    }
+
+    updateParts(dt);
+  }
+
+  function updateParts(dt) {
+    for (let i = game.parts.length - 1; i >= 0; i--) {
+      const q = game.parts[i];
+      q.vy += 0.15; q.x += q.vx; q.y += q.vy; q.life -= dt * 60;
+      if (q.life <= 0 || q.y > H + 20) game.parts.splice(i, 1);
+    }
+  }
+
+  function drawBackground() {
+    const g = ctx.createLinearGradient(0, 0, 0, H);
+    g.addColorStop(0, "#070a18"); g.addColorStop(0.7, "#0b1024"); g.addColorStop(1, "#11162e");
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = "#e8ecff";
+    for (const s of stars) {
+      s.x -= s.s; if (s.x < 0) s.x = W;
+      ctx.globalAlpha = 0.35 + 0.4 * Math.abs(Math.sin(game.t * 2 + s.y));
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 7); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    // distant ridge
+    ctx.fillStyle = "#131a33";
+    ctx.beginPath(); ctx.moveTo(0, GROUND);
+    for (let x = 0; x <= W; x += 80) ctx.lineTo(x, GROUND - 20 - 18 * Math.sin(x * 0.013));
+    ctx.lineTo(W, GROUND); ctx.closePath(); ctx.fill();
+    // ground
+    ctx.fillStyle = "#1b2340"; ctx.fillRect(0, GROUND, W, H - GROUND);
+    ctx.fillStyle = "#2b3a66"; ctx.fillRect(0, GROUND, W, 4);
+  }
+
+  function drawPlayer() {
+    const p = game.player; if (!p) return;
+    const blink = p.inv > 0 && Math.floor(game.t * 20) % 2 === 0;
+    ctx.save();
+    ctx.translate(p.x + p.w / 2, p.y);
+    ctx.scale(p.face, 1);
+    if (blink) ctx.globalAlpha = 0.4;
+    // legs
+    ctx.fillStyle = "#2f6fed";
+    ctx.fillRect(-10, 26, 8, 18); ctx.fillRect(2, 26, 8, 18);
+    // body
+    ctx.fillStyle = "#3b82f6"; ctx.fillRect(-12, 6, 24, 24);
+    ctx.fillStyle = "#93c5fd"; ctx.fillRect(-12, 6, 24, 5);
+    // arm cannon
+    ctx.fillStyle = "#1d4ed8"; ctx.fillRect(8, 12, 20, 9);
+    ctx.fillStyle = "#6ee7ff"; ctx.fillRect(24, 14, 5, 5);
+    // helmet
+    ctx.fillStyle = "#f8fafc"; ctx.beginPath(); ctx.arc(0, 0, 11, 0, 7); ctx.fill();
+    ctx.fillStyle = "#ef4444"; ctx.beginPath(); ctx.arc(3, -2, 4, 0, 7); ctx.fill();
+    ctx.restore();
+  }
+
+  function drawBoss() {
+    const b = game.boss; if (!b) return;
+    ctx.save();
+    ctx.translate(b.x + b.w / 2, b.y);
+    ctx.scale(b.face, 1);
+    const hurt = b.hurt > 0;
+    // body
+    ctx.fillStyle = hurt ? "#ff8fa3" : "#7c3aed";
+    ctx.beginPath(); ctx.ellipse(0, 78, 62, 78, 0, 0, 7); ctx.fill();
+    ctx.fillStyle = hurt ? "#ffc2cf" : "#a78bfa";
+    ctx.beginPath(); ctx.ellipse(0, 92, 40, 50, 0, 0, 7); ctx.fill();
+    // spikes
+    ctx.fillStyle = "#4c1d95";
+    for (let i = -2; i <= 2; i++) {
+      ctx.beginPath(); ctx.moveTo(i * 22 - 8, 12); ctx.lineTo(i * 22, -22); ctx.lineTo(i * 22 + 8, 12); ctx.closePath(); ctx.fill();
+    }
+    // eye
+    ctx.fillStyle = "#fde68a"; ctx.beginPath(); ctx.arc(18, 20, 11, 0, 7); ctx.fill();
+    ctx.fillStyle = "#0f172a"; ctx.beginPath(); ctx.arc(21, 20, 5, 0, 7); ctx.fill();
+    // mouth
+    const open = b.mouth > 0;
+    ctx.fillStyle = "#0f172a";
+    ctx.beginPath(); ctx.ellipse(28, 62, open ? 20 : 6, open ? 22 : 5, 0, 0, 7); ctx.fill();
+    if (open) {
+      ctx.fillStyle = "#f472b6"; ctx.beginPath(); ctx.ellipse(28, 62, 14, 15, 0, 0, 7); ctx.fill();
+      ctx.fillStyle = "#fff"; for (let i = -1; i <= 1; i++) ctx.fillRect(24 + i * 8, 48, 4, 7);
+    }
+    ctx.restore();
+  }
+
+  function drawShots() {
+    for (const s of game.shots) {
+      ctx.fillStyle = "#6ee7ff"; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 7); ctx.fill();
+      ctx.fillStyle = "rgba(110,231,255,.35)"; ctx.beginPath(); ctx.arc(s.x, s.y, s.r + 4, 0, 7); ctx.fill();
+    }
+    for (const s of game.enemyShots) {
+      ctx.fillStyle = "#ff5d7a"; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 7); ctx.fill();
+      ctx.fillStyle = "rgba(255,93,122,.3)"; ctx.beginPath(); ctx.arc(s.x, s.y, s.r + 5, 0, 7); ctx.fill();
+    }
+  }
+
+  function drawParts() {
+    for (const q of game.parts) {
+      ctx.globalAlpha = Math.max(0, Math.min(1, q.life / 30));
+      ctx.fillStyle = q.color; ctx.fillRect(q.x - 2, q.y - 2, 4, 4);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function bar(x, y, w, h, val, max, col, bg, label) {
+    ctx.fillStyle = bg; ctx.fillRect(x, y, w, h);
+    ctx.fillStyle = col; ctx.fillRect(x, y, w * Math.max(0, val / max), h);
+    ctx.strokeStyle = "#334155"; ctx.lineWidth = 2; ctx.strokeRect(x, y, w, h);
+    ctx.fillStyle = "#e8ecff"; ctx.font = "600 12px system-ui"; ctx.textAlign = "left";
+    ctx.fillText(label, x, y - 6);
+  }
+
+  function drawHud() {
+    const p = game.player, b = game.boss;
+    if (p) bar(16, 24, 240, 14, p.hp, p.maxHp, "#34d399", "#1f2937", "HUNTER");
+    if (b) bar(W - 256, 24, 240, 14, b.hp, b.maxHp, "#f472b6", "#1f2937", "BURROWER");
+    ctx.fillStyle = "rgba(232,236,255,.55)"; ctx.font = "12px system-ui"; ctx.textAlign = "center";
+    ctx.fillText("J / X shoot  ·  Space jump  ·  R restart", W / 2, 22);
+  }
+
+  function drawOverlay(title, sub, col) {
+    ctx.fillStyle = "rgba(3,5,13,.72)"; ctx.fillRect(0, 0, W, H);
+    ctx.textAlign = "center";
+    ctx.fillStyle = col; ctx.font = "700 44px system-ui";
+    ctx.fillText(title, W / 2, H / 2 - 20);
+    ctx.fillStyle = "#cdd6ff"; ctx.font = "16px system-ui";
+    ctx.fillText(sub, W / 2, H / 2 + 16);
+  }
+
+  function draw() {
+    ctx.save();
+    if (game.shake > 0) ctx.translate(rand(-game.shake, game.shake) * 0.4, rand(-game.shake, game.shake) * 0.4);
+    drawBackground();
+    drawParts();
+    drawBoss();
+    drawPlayer();
+    drawShots();
+    ctx.restore();
+    if (game.flash > 0) { ctx.fillStyle = `rgba(255,80,110,${game.flash * 0.5})`; ctx.fillRect(0, 0, W, H); }
+    if (game.state !== "title") drawHud();
+    if (game.state === "title") drawOverlay("VOID HUNTER", "Press SPACE to deploy", "#6ee7ff");
+    if (game.state === "win") drawOverlay("TARGET ELIMINATED", `Time ${game.t.toFixed(1)}s  ·  Press R to hunt again`, "#34d399");
+    if (game.state === "lose") drawOverlay("HUNTER DOWN", "Press R to retry", "#ff5d7a");
+  }
+
+  let last = performance.now();
+  function loop(now) {
+    const dt = Math.min(0.033, (now - last) / 1000); last = now;
+    update(dt); draw();
+    for (const k in pressed) delete pressed[k];
+    requestAnimationFrame(loop);
+  }
+  startTitle();
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
