@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gain Eager — Skybound</title>
+<meta name="description" content="A Three.js flight study: one aviator, an endless sky, and three lighting states rendered at 3840 by 2160." />
+<style>
+  :root{
+    --bg:#080d14; --surface:#0e1621; --ink:#eef3f6; --muted:#91a3b3;
+    --line:rgba(226,238,245,.16); --accent:#ffb547;
+    --mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;
+    --display:Impact,"Arial Black","Helvetica Neue",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:var(--mono);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+  .wrap{width:min(1240px,calc(100% - 48px));margin-inline:auto}
+  .mono-label{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--accent)}
+
+  header{position:absolute;inset:0 0 auto;z-index:3}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 0}
+  .mark{font-family:var(--display);font-size:19px;letter-spacing:.1em;text-transform:uppercase}
+  .mark span{color:var(--accent)}
+  .nav nav{display:flex;gap:28px;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+  .nav nav a{color:var(--muted)}
+  .nav nav a:hover{color:var(--accent)}
+
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
+  .hero-media{position:absolute;inset:0}
+  .hero-media img{width:100%;height:100%;object-fit:cover;object-position:50% 46%}
+  .hero-media:after{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(5,9,15,.91) 0%,rgba(5,9,15,.62) 46%,rgba(5,9,15,.12) 100%),
+               linear-gradient(0deg,rgba(5,9,15,.82) 0%,rgba(5,9,15,0) 45%)}
+  .hero-inner{position:relative;z-index:2;padding-bottom:clamp(56px,9vh,110px)}
+  .hero h1{font-family:var(--display);font-size:clamp(72px,13vw,190px);line-height:.82;
+    letter-spacing:.005em;text-transform:uppercase;margin:18px 0 0;max-width:11ch}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero p{max-width:52ch;margin:26px 0 34px;font-size:14px;line-height:1.9;color:#cfdae3}
+  .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:14px;border:1px solid var(--accent);
+    padding:15px 22px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    background:var(--accent);color:#0a0f16;min-height:50px}
+  .btn:hover{background:transparent;color:var(--accent)}
+  .btn.ghost{border-color:var(--line);background:transparent;color:var(--ink)}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .hero-foot{position:absolute;right:0;bottom:42px;z-index:2;font-size:10px;
+    letter-spacing:.24em;color:var(--muted);text-align:right;text-transform:uppercase}
+
+  section{padding:clamp(72px,11vw,140px) 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:52px}
+  .sec-head h2{font-family:var(--display);font-size:clamp(38px,6vw,74px);
+    line-height:.9;text-transform:uppercase;margin:0;letter-spacing:.01em}
+  .sec-head p{margin:0;color:var(--muted);font-size:12px;line-height:1.8;max-width:34ch}
+
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .shot{display:block}
+  .shot .frame{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--surface);border:1px solid var(--line)}
+  .shot img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .5s ease}
+  .shot:hover img{transform:scale(1.035);filter:saturate(1.12)}
+  .shot:hover .frame{border-color:var(--accent)}
+  .shot .meta{display:flex;justify-content:space-between;gap:12px;margin-top:14px;
+    font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+  .shot .meta span:last-child{color:var(--muted)}
+  .shot h3{margin:7px 0 0;font-family:var(--display);font-size:22px;letter-spacing:.04em;text-transform:uppercase}
+
+  .specs{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,8vw,110px);align-items:start}
+  .specs .lede{font-size:15px;line-height:2;color:#cbd7e0;max-width:48ch}
+  .specs .lede strong{color:var(--accent);font-weight:600}
+  dl{margin:0;border-top:1px solid var(--line)}
+  dl div{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+  dt{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  dd{margin:0;font-size:13px;line-height:1.7}
+
+  .launch{padding:clamp(80px,12vw,150px) 0;text-align:center;border-top:1px solid var(--line)}
+  .launch h2{font-family:var(--display);font-size:clamp(54px,10vw,130px);line-height:.85;
+    text-transform:uppercase;margin:16px 0 28px}
+  .launch p{color:var(--muted);font-size:13px;line-height:1.9;margin:0 auto 34px;max-width:46ch}
+
+  footer{border-top:1px solid var(--line);padding:28px 0;font-size:10px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+
+  @media (max-height:620px){
+    .hero{align-items:center}
+    .hero h1{font-size:clamp(54px,10vw,112px)}
+    .hero-inner{padding-bottom:18px}
+    .hero p{margin:16px 0 20px;line-height:1.7;color:#e4ecf2}
+  }
+  @media (max-width:820px){
+    .nav nav{display:none}
+    .gallery{grid-template-columns:1fr;gap:34px}
+    .specs{grid-template-columns:1fr}
+    .hero-foot{display:none}
+    .sec-head{display:block}
+    .sec-head p{margin-top:18px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .shot img{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="mark" href="#top">GE<span>//</span>Skybound</a>
+    <nav>
+      <a href="#stills">Stills</a>
+      <a href="#system">System</a>
+      <a href="flight.html">Launch flight</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-media"><img src="assets/golden.webp" alt="An aviator above a cloud deck at golden hour" fetchpriority="high" /></div>
+    <div class="wrap hero-inner">
+      <div class="mono-label">Three.js / WebGL2 / 3840 × 2160</div>
+      <h1>Gain Eager <em>Skybound</em></h1>
+      <p>One aviator, one endless sky. A real-time flight study built from procedural clouds, a spline-driven chase camera and a renderer that never touches an external asset at runtime.</p>
+      <div class="actions">
+        <a class="btn" href="flight.html">Launch flight <span aria-hidden="true">↗</span></a>
+        <a class="btn ghost" href="#stills">View stills</a>
+      </div>
+    </div>
+    <div class="hero-foot">Pilot 01<br />Autopilot engaged</div>
+  </section>
+
+  <section id="stills">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Light studies</h2>
+        <p>Three states of the same world. Each thumbnail opens the native 4K frame.</p>
+      </div>
+      <div class="gallery">
+        <a class="shot" href="stills/gain-eager-golden-4k.png">
+          <div class="frame"><img src="assets/golden.webp" alt="Golden hour flight with a low sun behind the aviator" loading="lazy" /></div>
+          <div class="meta"><span>01 / Golden hour</span><span>4K PNG</span></div>
+          <h3>Warm backlight</h3>
+        </a>
+        <a class="shot" href="stills/gain-eager-noon-4k.png">
+          <div class="frame"><img src="assets/noon.webp" alt="High noon flight over bright white clouds" loading="lazy" /></div>
+          <div class="meta"><span>02 / High noon</span><span>4K PNG</span></div>
+          <h3>Open daylight</h3>
+        </a>
+        <a class="shot" href="stills/gain-eager-storm-4k.png">
+          <div class="frame"><img src="assets/storm.webp" alt="Storm light flight through dark blue cloud layers" loading="lazy" /></div>
+          <div class="meta"><span>03 / Storm light</span><span>4K PNG</span></div>
+          <h3>Cold overcast</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="system">
+    <div class="wrap specs">
+      <div>
+        <div class="mono-label">02 / Flight system</div>
+        <h2 class="sec-head" style="display:block;margin:18px 0 28px">Built in the browser</h2>
+        <p class="lede">The scene is generated at runtime: <strong>720 instanced cloud billboards</strong>, a procedural sky shader, and a hand-built aviator with animated scarf, wings and jet exhaust. The camera banks with path curvature, then hands control to you the moment you touch the keys.</p>
+      </div>
+      <dl>
+        <div><dt>Renderer</dt><dd>Three.js r160, ACES tone mapping, UnrealBloom, WebGL2</dd></div>
+        <div><dt>Flight model</dt><dd>Closed Catmull-Rom autopilot; manual yaw, pitch, throttle and bank</dd></div>
+        <div><dt>Clouds</dt><dd>720 camera-facing instanced quads with a canvas-generated texture</dd></div>
+        <div><dt>Controls</dt><dd>A/D bank, W/S throttle, arrows pitch, M mode, L light, P 4K still</dd></div>
+        <div><dt>Export</dt><dd>3840 × 2160 PNG captured from the live composer</dd></div>
+        <div><dt>Dependencies</dt><dd>Vendored locally. No network calls while flying.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="launch">
+    <div class="wrap">
+      <div class="mono-label">03 / Takeoff</div>
+      <h2>Fly it now</h2>
+      <p>Full scene, three lighting states and a 4K export button. Keyboard required; headphones encouraged.</p>
+      <a class="btn" href="flight.html">Launch flight <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Gain Eager — Skybound</span>
+    <span>Three.js / WebGL2 / 2026</span>
+  </div>
+</footer>
+</body>
+</html>
