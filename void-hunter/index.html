@@ -73,13 +73,13 @@
     game.boss = {
       x: 720, y: GROUND, w: 150, h: 165, vx: 0, vy: 0,
       hp: 200, maxHp: 200, face: -1, onGround: true,
-      mouth: 0, mouthMax: 0, spit: 2.2, slam: 5.0, jumping: false, hurt: 0
+      mouth: 0, mouthMax: 0, spit: 2.2, slam: 5.0, jumping: false, hurt: 0, enraged: false
     };
     game.shots = []; game.enemyShots = []; game.parts = [];
     game.state = "play"; game.t = 0; game.msg = ""; game.msgT = 0;
   }
 
-  function startTitle() { game.state = "title"; game.player = null; game.boss = null; game.shots = []; game.enemyShots = []; game.parts = []; }
+  function startTitle() { game.state = "title"; game.player = null; game.boss = null; game.shots = []; game.enemyShots = []; game.parts = []; game.msg = ""; game.msgT = 0; }
 
   function burst(x, y, n, color, speed = 3) {
     for (let i = 0; i < n; i++) {
@@ -116,6 +116,7 @@
 
   function update(dt) {
     game.t += dt;
+    game.msgT += dt;
     if (game.shake > 0) game.shake = Math.max(0, game.shake - dt * 30);
     if (game.flash > 0) game.flash = Math.max(0, game.flash - dt);
 
@@ -124,7 +125,6 @@
       return;
     }
     if (game.state === "win" || game.state === "lose") {
-      game.msgT += dt;
       if (pressed.KeyR || pressed.Enter) reset();
       updateParts(dt);
       return;
@@ -150,11 +150,15 @@
     // boss AI
     b.face = p.x + p.w / 2 < b.x + b.w / 2 ? -1 : 1;
     b.hurt = Math.max(0, b.hurt - dt);
+    if (!b.enraged && b.hp <= b.maxHp / 2) {
+      b.enraged = true; game.msg = "THE BURROWER ENRAGES"; game.msgT = 0;
+      game.shake = Math.max(game.shake, 8);
+    }
     b.spit -= dt; b.slam -= dt;
     if (b.mouth > 0) b.mouth = Math.max(0, b.mouth - dt);
 
     if (b.spit <= 0) {
-      b.spit = rand(1.8, 2.8);
+      b.spit = b.enraged ? rand(1.0, 1.6) : rand(1.8, 2.8);
       b.mouth = 0.8; b.mouthMax = 0.8;
       const bx = b.x + b.w / 2 + b.face * 30, by = b.y + 40;
       for (let i = -1; i <= 1; i++) {
@@ -162,7 +166,7 @@
       }
     }
     if (b.slam <= 0 && !b.jumping) {
-      b.slam = rand(5.5, 7.5);
+      b.slam = b.enraged ? rand(3.5, 5.0) : rand(5.5, 7.5);
       b.jumping = true;
       b.vy = -11; b.vx = Math.sign(p.x - b.x) * 4.2;
       b.onGround = false;
@@ -267,9 +271,11 @@
     ctx.scale(b.face, 1);
     const hurt = b.hurt > 0;
     // body
-    ctx.fillStyle = hurt ? "#ff8fa3" : "#7c3aed";
+    const body = b.enraged ? "#dc2626" : "#7c3aed";
+    const belly = b.enraged ? "#f87171" : "#a78bfa";
+    ctx.fillStyle = hurt ? "#ff8fa3" : body;
     ctx.beginPath(); ctx.ellipse(0, 78, 62, 78, 0, 0, 7); ctx.fill();
-    ctx.fillStyle = hurt ? "#ffc2cf" : "#a78bfa";
+    ctx.fillStyle = hurt ? "#ffc2cf" : belly;
     ctx.beginPath(); ctx.ellipse(0, 92, 40, 50, 0, 0, 7); ctx.fill();
     // spikes
     ctx.fillStyle = "#4c1d95";
@@ -345,6 +351,10 @@
     ctx.restore();
     if (game.flash > 0) { ctx.fillStyle = `rgba(255,80,110,${game.flash * 0.5})`; ctx.fillRect(0, 0, W, H); }
     if (game.state !== "title") drawHud();
+    if (game.msg && game.msgT < 1.6) {
+      ctx.textAlign = "center"; ctx.fillStyle = "#ff9f1c"; ctx.font = "700 28px system-ui";
+      ctx.fillText(game.msg, W / 2, 120);
+    }
     if (game.state === "title") drawOverlay("VOID HUNTER", "Press SPACE to deploy", "#6ee7ff");
     if (game.state === "win") drawOverlay("TARGET ELIMINATED", `Time ${game.t.toFixed(1)}s  ·  Press R to hunt again`, "#34d399");
     if (game.state === "lose") drawOverlay("HUNTER DOWN", "Press R to retry", "#ff5d7a");

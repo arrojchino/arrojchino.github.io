@@ -15,6 +15,7 @@ Play: https://arrojchino.github.io/void-hunter/
 ## Gameplay
 
 - The Burrower spits projectiles and telegraphs a jump slam.
+- Below half health it enrages: faster attacks and a redder hide.
 - Shoot its open mouth for double damage.
 - Hunter HP 100, Burrower HP 200.
 - Win by depleting the Burrower's HP; lose if your HP reaches zero.
