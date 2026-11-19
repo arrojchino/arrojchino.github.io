@@ -65,16 +65,28 @@
   };
   window.__game = game;
 
+  function makeBoss(index) {
+    if (index === 0) return {
+      kind: "burrower", x: 720, y: GROUND, w: 150, h: 165, vx: 0, vy: 0,
+      hp: 200, maxHp: 200, face: -1, onGround: true,
+      mouth: 0, mouthMax: 0, spit: 2.2, slam: 5.0, jumping: false, hurt: 0, enraged: false
+    };
+    return {
+      kind: "warden", x: 700, y: 250, w: 130, h: 110, vx: 0, vy: 0,
+      hp: 180, maxHp: 180, face: -1, onGround: false,
+      mouth: 0, mouthMax: 0, spit: 2.0, slam: 0, jumping: false, hurt: 0, enraged: false,
+      baseY: 250, phase: 0, dash: 4.0, dashing: 0
+    };
+  }
+
   function reset() {
     game.player = {
       x: 120, y: GROUND, w: 30, h: 44, vx: 0, vy: 0,
       hp: 100, maxHp: 100, onGround: true, face: 1, cool: 0, inv: 0
     };
-    game.boss = {
-      x: 720, y: GROUND, w: 150, h: 165, vx: 0, vy: 0,
-      hp: 200, maxHp: 200, face: -1, onGround: true,
-      mouth: 0, mouthMax: 0, spit: 2.2, slam: 5.0, jumping: false, hurt: 0, enraged: false
-    };
+    game.bosses = [0, 1];
+    game.bossIndex = 0;
+    game.boss = makeBoss(0);
     game.shots = []; game.enemyShots = []; game.parts = [];
     game.state = "play"; game.t = 0; game.msg = ""; game.msgT = 0;
   }
@@ -108,10 +120,53 @@
     b.hp -= dmg; b.hurt = 0.15; game.shake = Math.max(game.shake, 4);
     burst(x, y, 8, "#ffd166");
     if (b.hp <= 0) {
-      b.hp = 0; game.state = "win"; game.msg = "TARGET ELIMINATED"; game.msgT = 0;
+      b.hp = 0;
       burst(b.x + b.w / 2, b.y + b.h / 2, 60, "#6ee7ff", 6);
       burst(b.x + b.w / 2, b.y + b.h / 2, 40, "#ff9f1c", 5);
+      if (game.bossIndex < game.bosses.length - 1) {
+        game.bossIndex++;
+        game.boss = makeBoss(game.bossIndex);
+        game.player.hp = Math.min(game.player.maxHp, game.player.hp + 30);
+        game.enemyShots = [];
+        game.msg = "THE WARDEN APPROACHES"; game.msgT = 0;
+        game.shake = Math.max(game.shake, 10);
+      } else {
+        game.state = "win"; game.msg = "ALL TARGETS ELIMINATED"; game.msgT = 0;
+      }
     }
+  }
+
+  function updateWarden(b, p, dt) {
+    b.face = p.x + p.w / 2 < b.x + b.w / 2 ? -1 : 1;
+    b.hurt = Math.max(0, b.hurt - dt);
+    if (!b.enraged && b.hp <= b.maxHp / 2) {
+      b.enraged = true; game.msg = "THE WARDEN ENRAGES"; game.msgT = 0;
+      game.shake = Math.max(game.shake, 8);
+    }
+    b.phase += dt * (b.enraged ? 2.2 : 1.5);
+    b.y = b.baseY + Math.sin(b.phase) * 55;
+    const target = Math.max(300, Math.min(W - b.w - 20, p.x + (p.x < b.x ? 160 : -160)));
+    b.x += Math.sign(target - b.x) * (b.enraged ? 1.4 : 0.9);
+    b.dash -= dt;
+    if (b.dashing > 0) {
+      b.dashing -= dt; b.x += b.vx;
+      if (b.dashing <= 0) b.vx = 0;
+    } else if (b.dash <= 0) {
+      b.dash = b.enraged ? rand(2.6, 3.6) : rand(4.0, 5.2);
+      b.dashing = 0.55; b.vx = Math.sign(p.x - b.x) * (b.enraged ? 9 : 7);
+      game.shake = Math.max(game.shake, 6);
+    }
+    b.spit -= dt;
+    if (b.spit <= 0) {
+      b.spit = b.enraged ? rand(1.1, 1.6) : rand(1.7, 2.3);
+      b.mouth = 0.7; b.mouthMax = 0.7;
+      const sx = b.x + b.w / 2, sy = b.y + b.h * 0.6;
+      const dx = (p.x + p.w / 2) - sx, dy = (p.y + p.h / 2) - sy;
+      const d = Math.hypot(dx, dy) || 1, sp = b.enraged ? 5.2 : 4.2;
+      game.enemyShots.push({ x: sx, y: sy, vx: dx / d * sp, vy: dy / d * sp, r: 7 });
+    }
+    if (b.mouth > 0) b.mouth = Math.max(0, b.mouth - dt);
+    if (b.dashing > 0 && b.x < p.x + p.w && b.x + b.w > p.x && b.y < p.y + p.h && b.y + b.h > p.y) hurtPlayer(22);
   }
 
   function update(dt) {
@@ -147,6 +202,9 @@
     if (p.y >= GROUND) { p.y = GROUND; p.vy = 0; p.onGround = true; }
     p.x = Math.max(8, Math.min(W - p.w - 8, p.x));
 
+    if (b.kind === "warden") {
+      updateWarden(b, p, dt);
+    } else {
     // boss AI
     b.face = p.x + p.w / 2 < b.x + b.w / 2 ? -1 : 1;
     b.hurt = Math.max(0, b.hurt - dt);
@@ -184,6 +242,7 @@
       // idle drift toward player
       const target = Math.max(360, Math.min(W - b.w - 20, p.x + (p.x < b.x ? 220 : -220)));
       b.x += Math.sign(target - b.x) * 0.6;
+    }
     }
 
     // player shots
@@ -264,8 +323,35 @@
     ctx.restore();
   }
 
+  function drawWarden(b) {
+    ctx.save();
+    ctx.translate(b.x + b.w / 2, b.y + b.h / 2);
+    ctx.scale(b.face, 1);
+    const hurt = b.hurt > 0;
+    const body = b.enraged ? "#f97316" : "#06b6d4";
+    const belly = b.enraged ? "#fdba74" : "#67e8f9";
+    ctx.strokeStyle = hurt ? "#fecdd3" : body; ctx.lineWidth = 6; ctx.lineCap = "round";
+    for (let i = -2; i <= 2; i++) {
+      const sx = i * 18;
+      ctx.beginPath(); ctx.moveTo(sx, 20);
+      ctx.quadraticCurveTo(sx + Math.sin(game.t * 6 + i) * 10, 55, sx + Math.sin(game.t * 4 + i) * 16, 82);
+      ctx.stroke();
+    }
+    ctx.fillStyle = hurt ? "#fecdd3" : body;
+    ctx.beginPath(); ctx.ellipse(0, 0, 58, 46, 0, Math.PI, 0); ctx.fill();
+    ctx.fillStyle = hurt ? "#fff1f2" : belly;
+    ctx.beginPath(); ctx.ellipse(0, 6, 42, 30, 0, Math.PI, 0); ctx.fill();
+    ctx.fillStyle = "#0f172a"; ctx.beginPath(); ctx.arc(0, -6, 14, 0, 7); ctx.fill();
+    ctx.fillStyle = "#f472b6"; ctx.beginPath(); ctx.arc(0, -6, 7, 0, 7); ctx.fill();
+    const open = b.mouth > 0;
+    ctx.fillStyle = "#0f172a";
+    ctx.beginPath(); ctx.ellipse(0, 22, open ? 16 : 5, open ? 10 : 4, 0, 0, 7); ctx.fill();
+    ctx.restore();
+  }
+
   function drawBoss() {
     const b = game.boss; if (!b) return;
+    if (b.kind === "warden") { drawWarden(b); return; }
     ctx.save();
     ctx.translate(b.x + b.w / 2, b.y);
     ctx.scale(b.face, 1);
@@ -326,7 +412,8 @@
   function drawHud() {
     const p = game.player, b = game.boss;
     if (p) bar(16, 24, 240, 14, p.hp, p.maxHp, "#34d399", "#1f2937", "HUNTER");
-    if (b) bar(W - 256, 24, 240, 14, b.hp, b.maxHp, "#f472b6", "#1f2937", "BURROWER");
+    if (b) bar(W - 256, 24, 240, 14, b.hp, b.maxHp, b.kind === "warden" ? "#67e8f9" : "#f472b6", "#1f2937", b.kind === "warden" ? "WARDEN" : "BURROWER");
+    if (b) { ctx.fillStyle = "rgba(232,236,255,.7)"; ctx.font = "11px system-ui"; ctx.textAlign = "right"; ctx.fillText(`TARGET ${game.bossIndex + 1}/${game.bosses.length}`, W - 16, 52); }
     ctx.fillStyle = "rgba(232,236,255,.55)"; ctx.font = "12px system-ui"; ctx.textAlign = "center";
     ctx.fillText("J / X shoot  ·  Space jump  ·  R restart", W / 2, 22);
   }
@@ -345,7 +432,7 @@
     if (game.shake > 0) ctx.translate(rand(-game.shake, game.shake) * 0.4, rand(-game.shake, game.shake) * 0.4);
     drawBackground();
     drawParts();
-    drawBoss();
+    if (game.state !== "win") drawBoss();
     drawPlayer();
     drawShots();
     ctx.restore();
@@ -356,7 +443,7 @@
       ctx.fillText(game.msg, W / 2, 120);
     }
     if (game.state === "title") drawOverlay("VOID HUNTER", "Press SPACE to deploy", "#6ee7ff");
-    if (game.state === "win") drawOverlay("TARGET ELIMINATED", `Time ${game.t.toFixed(1)}s  ·  Press R to hunt again`, "#34d399");
+    if (game.state === "win") drawOverlay(game.msg || "TARGET ELIMINATED", `Time ${game.t.toFixed(1)}s  ·  Press R to hunt again`, "#34d399");
     if (game.state === "lose") drawOverlay("HUNTER DOWN", "Press R to retry", "#ff5d7a");
   }
 

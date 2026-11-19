@@ -14,11 +14,12 @@ Play: https://arrojchino.github.io/void-hunter/
 
 ## Gameplay
 
-- The Burrower spits projectiles and telegraphs a jump slam.
-- Below half health it enrages: faster attacks and a redder hide.
-- Shoot its open mouth for double damage.
-- Hunter HP 100, Burrower HP 200.
-- Win by depleting the Burrower's HP; lose if your HP reaches zero.
+- Two targets: the Burrower (ground) and the Warden (flying). Defeat both to win.
+- The Burrower spits projectiles and telegraphs a jump slam; the Warden shoots aimed shots and dashes.
+- Below half health each boss enrages: faster attacks and a different hide.
+- Shoot an open mouth for double damage.
+- Hunter HP 100; Burrower HP 200, Warden HP 180. Defeating a target restores 30 HP.
+- Win by eliminating both targets; lose if your HP reaches zero.
 
 ## Files
 
