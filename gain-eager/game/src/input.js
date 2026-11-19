@@ -32,8 +32,8 @@ class Input {
     });
     canvas.addEventListener('contextmenu', e => e.preventDefault());
     addEventListener('mousemove', e => {
-      if (!this.locked) return;
-      this.mouse.dx += e.movementX; this.mouse.dy += e.movementY;
+      this.mouse.dx += e.movementX || 0;
+      this.mouse.dy += e.movementY || 0;
     });
     document.addEventListener('pointerlockchange', () => {
       this.locked = document.pointerLockElement === canvas;

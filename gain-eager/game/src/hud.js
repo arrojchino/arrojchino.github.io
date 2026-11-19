@@ -8,7 +8,7 @@ export class HUD {
     this.el = {};
     for (const id of ['alt','spd','status','healthFill','energyFill','cameraMode','fps','reticle',
                       'minimap','event','screen','menu','pause','settings','controls','bokehState',
-                      'healthNum','energyNum','cdLaser','cdBlast','cdShock','cdBlink','cdSpeed','hintbar']) {
+                      'healthNum','energyNum','cdLaser','cdBlast','cdShock','cdBlink','cdSpeed','hintbar','pointerHint']) {
       this.el[id] = $(id);
     }
     this.map = this.el.minimap.getContext('2d');
@@ -27,6 +27,10 @@ export class HUD {
     on('quitBtn', handlers.quit);
     on('closeControls', handlers.close);
     on('closeSettings', handlers.close);
+    const s = $('sensRange');
+    if (s) s.addEventListener('input', () => handlers.sensitivity(parseFloat(s.value)));
+    const inv = $('invertCheck');
+    if (inv) inv.addEventListener('change', () => handlers.invert(inv.checked));
     const q = $('qualitySelect');
     if (q) { q.value = handlers.state.quality; q.addEventListener('change', () => handlers.quality(q.value, false)); }
     const v = $('volumeRange');
@@ -44,7 +48,7 @@ export class HUD {
 
   setBokeh(on) { if (this.el.bokehState) this.el.bokehState.textContent = on ? 'ON' : 'OFF'; }
 
-  update(state, world, perf) {
+  update(state, world, perf, input) {
     const pl = state.player;
     this.el.alt.textContent = Math.round(pl.pos.y) + ' m';
     this.el.spd.textContent = Math.round(pl.speed * 3.6) + ' km/h';
@@ -66,6 +70,7 @@ export class HUD {
     if (ev) { this.el.event.textContent = ev.text; this.el.event.style.opacity = state.time - ev.at < 2.4 ? '1' : '0'; }
 
     if (state.time > 9 && this.el.hintbar) this.el.hintbar.classList.add('hidden');
+    if (this.el.pointerHint) this.el.pointerHint.style.display = (state.started && !input.locked) ? 'block' : 'none';
 
     // radar: clipped disc, water/terrain sample, structures, pads, sweep and heading cone
     if (++this.mapTick % 2 === 0 && world) {

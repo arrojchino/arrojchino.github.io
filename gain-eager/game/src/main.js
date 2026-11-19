@@ -102,12 +102,22 @@ hud.bind({
   quit: () => { state.started = false; state.paused = false; hud.show('menu'); },
   quality: (name, auto) => { applyQuality(name, auto); audio.play('ui'); },
   volume: v => audio.setVolume(v),
+  sensitivity: v => { cameraRig.sens = v; },
+  invert: v => { cameraRig.invertY = v; },
   adaptive: v => { perf.adaptive = v; },
 });
 hud.show('menu');
 applyQuality(state.quality, false);
 
 addEventListener('keydown', e => {
+  if (e.key.toLowerCase() === 'r' && state.started && !state.paused) {
+    const pl = state.player;
+    pl.pos.x = 0; pl.pos.y = 2; pl.pos.z = 38;
+    pl.vel.x = pl.vel.y = pl.vel.z = 0;
+    pl.flying = false; pl.grounded = true; pl.hovering = false;
+    pl.health = CONFIG.player.maxHealth; pl.energy = CONFIG.player.maxEnergy;
+    emit('Respawn');
+  }
   if (e.key === 'Escape') {
     if (!state.started) return;
     state.paused = !state.paused;
@@ -140,7 +150,7 @@ function tick(dt) {
     abilities.update(dt, ctx);
     world.update(dt, camera.position);
     particles.update(dt);
-    hud.update(state, world, perf);
+    hud.update(state, world, perf, input);
   }
   renderer.info.reset();
   composer.render();

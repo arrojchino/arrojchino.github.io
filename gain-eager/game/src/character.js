@@ -126,11 +126,17 @@ export class Character {
     const FACE_PARTS = ['eyeWhite','pupil','brow','glasses','lens','eyeGlow','bridge','nose','mouth','hair','hairSide'];
     this.faceParts = [];
     this.group.traverse(o => { if (o.isMesh && FACE_PARTS.includes(o.name)) this.faceParts.push(o); });
-    this.photoPlane = new THREE.Mesh(
-      new THREE.PlaneGeometry(.36, .46),
-      new THREE.MeshBasicMaterial({ transparent: true, depthWrite: false, side: THREE.DoubleSide, toneMapped: false })
-    );
-    this.photoPlane.position.set(0, .01, .205);
+    const faceGeo = new THREE.PlaneGeometry(.32, .40, 10, 10);
+    const fa = faceGeo.attributes.position;
+    for (let i = 0; i < fa.count; i++) {
+      const x = fa.getX(i), y = fa.getY(i);
+      fa.setZ(i, -(x*x*3.4 + y*y*1.2));
+    }
+    fa.needsUpdate = true; faceGeo.computeVertexNormals();
+    this.photoPlane = new THREE.Mesh(faceGeo, new THREE.MeshBasicMaterial({
+      map: null, transparent: true, depthWrite: false, side: THREE.DoubleSide, toneMapped: false
+    }));
+    this.photoPlane.position.set(0, .005, .205);
     this.photoPlane.visible = false;
     head.add(this.photoPlane);
     scene.add(this.group);

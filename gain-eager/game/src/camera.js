@@ -11,7 +11,7 @@ export class CameraRig {
     this.yaw = 0; this.pitch = .08;
     this.pos = new THREE.Vector3(0, 6, 26);
     this.look = new THREE.Vector3();
-    this.shake = 0;
+    this.shake = 0; this.sens = .0022; this.invertY = false;
     this.freeDist = 16;
     this.mode = 'chase';
     this._d = new THREE.Vector3();
@@ -30,9 +30,9 @@ export class CameraRig {
     const { input, state, world } = ctx;
     const pl = state.player;
     const m = input.mouseDelta();
-    const sens = .0022;
+    const sens = this.sens;
     this.yaw -= m.x * sens;
-    this.pitch = Math.max(-1.2, Math.min(1.2, this.pitch - m.y * sens));
+    this.pitch = Math.max(-1.2, Math.min(1.2, this.pitch + (this.invertY ? m.y : -m.y) * sens));
     if (!input.locked) {
       if (input.down('ArrowLeft')) this.yaw += dt * 1.5;
       if (input.down('ArrowRight')) this.yaw -= dt * 1.5;

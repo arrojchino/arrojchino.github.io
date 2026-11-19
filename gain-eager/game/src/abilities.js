@@ -133,9 +133,6 @@ export class Abilities {
     const pl = state.player;
     for (const k of Object.keys(state.cooldowns)) state.cooldowns[k] = Math.max(0, state.cooldowns[k] - dt);
 
-    if (input.hit('Shift') && pl.energy >= 20 && state.cooldowns.speed <= 0) {
-      state.cooldowns.speed = 2.4; pl.energy -= 20; audio.play('boost'); emit('Super speed');
-    }
     if (input.hit('q')) this._shock(ctx);
     if (input.hit('e')) this._teleport(ctx);
     if (input.mouse.rightPressed) this._fireBlast(ctx);

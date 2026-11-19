@@ -16,8 +16,14 @@ export class Flight {
     const yaw = cameraRig.yaw, pitch = cameraRig.pitch;
     const fx = Math.sin(yaw), fz = Math.cos(yaw);
     const rx = Math.cos(yaw), rz = -Math.sin(yaw);
-    const boosting = input.down('Shift') && state.cooldowns.speed > 0;
+    const boosting = input.down('Shift') && pl.energy > 2;
     pl.boosting = boosting;
+    if (boosting) {
+      pl.energy = Math.max(0, pl.energy - dt * 24);
+      state.cooldowns.speed = .3;
+      if (!this.wasBoosting) { audio.play('boost'); emit('Super speed'); }
+    }
+    this.wasBoosting = boosting;
 
     let ix = 0, iz = 0, iy = 0;
     if (input.down('w')) { ix += fx; iz += fz; }
