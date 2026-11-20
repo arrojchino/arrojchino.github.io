@@ -7,7 +7,7 @@ export const CONFIG = {
     maxSpeed: 115, hoverDamping: 3.4, jumpVelocity: 8.2, takeoffVelocity: 17,
     radius: .55, eyeHeight: 1.62, maxHealth: 100, maxEnergy: 100,
   },
-  camera: { chaseDist: 6.6, chaseHeight: 2.2, lerp: 7, lookLerp: 9, fovBase: 62, fovSpeed: .12 },
+  camera: { chaseDist: 8.5, chaseHeight: 3.1, lerp: 7, lookLerp: 9, fovBase: 62, fovSpeed: .12 },
   combat: { laserCooldown: .16, laserEnergy: 6, blastCooldown: .9, blastEnergy: 18,
     shockCooldown: 6, shockEnergy: 30, teleportCooldown: 3.5, teleportEnergy: 22,
     laserRange: 230, blastSpeed: 95, blastRadius: 7 },

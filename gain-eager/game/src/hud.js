@@ -110,8 +110,6 @@ export class HUD {
       const a = state.time * .9;
       c.strokeStyle = 'rgba(120,210,255,.35)';
       c.beginPath(); c.moveTo(S/2, S/2); c.lineTo(S/2 + Math.cos(a)*R, S/2 + Math.sin(a)*R); c.stroke();
-      c.fillStyle = 'rgba(120,210,255,.07)';
-      c.beginPath(); c.moveTo(S/2, S/2); c.arc(S/2, S/2, R, a - .5, a); c.closePath(); c.fill();
       c.save(); c.translate(S/2, S/2); c.rotate(-pl.yaw);
       c.fillStyle = 'rgba(255,90,60,.16)';
       c.beginPath(); c.moveTo(0,0); c.arc(0,0,20,-.45,.45); c.closePath(); c.fill();
@@ -119,8 +117,8 @@ export class HUD {
       c.beginPath(); c.moveTo(0,-9); c.lineTo(6,7); c.lineTo(0,3); c.lineTo(-6,7); c.closePath(); c.fill();
       c.restore();
       c.restore();
-      c.fillStyle = '#ffb547'; c.font = '600 10px "Segoe UI",Arial,sans-serif'; c.textAlign = 'center'; c.fillText('N', S/2, 14);
-      c.fillStyle = 'rgba(190,210,225,.65)'; c.font = '9px "Segoe UI",Arial,sans-serif'; c.textAlign = 'left'; c.fillText('340 m', 10, S - 10);
+      c.fillStyle = '#ffb547'; c.font = '9px ui-monospace,monospace'; c.fillText('N', S/2 - 3, 13);
+      c.fillStyle = 'rgba(190,210,225,.65)'; c.fillText('340 m', 10, S - 10);
     }
   }
 }
