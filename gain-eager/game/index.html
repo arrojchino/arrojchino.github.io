@@ -17,35 +17,56 @@
 
 <div id="hud">
   <div class="hud-top">
-    <div class="brand"><span>JEFFREY EPSTEIN</span><b>FLYING SIMULATOR</b></div>
-    <div class="stats">
-      <div><label>ALTITUDE</label><strong id="alt">0 m</strong></div>
-      <div><label>AIRSPEED</label><strong id="spd">0 km/h</strong></div>
-      <div><label>FLIGHT</label><strong id="status">GROUND</strong></div>
-      <div><label>CAMERA</label><strong id="cameraMode">CHASE</strong></div>
-      <div><label>PERF</label><strong id="fps">0 FPS</strong></div>
+    <div class="mission">
+      <div class="brand"><span>JEFFREY EPSTEIN</span><b>FLYING SIMULATOR</b></div>
+      <div class="status-chip">
+        <i class="led"></i><span class="chip-label">STATUS</span><strong id="status">GROUND</strong>
+        <span class="cam">CAM <em id="cameraMode">CHASE</em></span>
+      </div>
+    </div>
+
+    <div class="top-center">
+      <div class="objective"><span class="obj-tag">OBJECTIVE</span><span class="obj-text">TAKE OFF · HOVER · BLAST · LAND</span></div>
+      <div id="hintbar"><span><b>WASD</b> move</span><span><b>SPACE</b> up</span><span><b>CTRL</b> down</span><span><b>F</b> takeoff</span><span><b>LMB</b> lasers</span><span><b>V</b> camera</span><span><b>ESC</b> pause</span></div>
+      <div id="pointerHint">MOVE MOUSE TO LOOK · CLICK TO CAPTURE</div>
+    </div>
+
+    <div class="readouts">
+      <div class="readout"><label>ALTITUDE</label><strong id="alt">0 m</strong></div>
+      <div class="readout"><label>AIRSPEED</label><strong id="spd">0 km/h</strong></div>
+      <div class="readout perf"><label>PERF</label><strong id="fps">0 FPS</strong></div>
     </div>
   </div>
 
   <div id="reticle"><i></i><i></i><i></i><i></i></div>
   <div id="event"></div>
-  <div id="pointerHint">MOVE MOUSE TO LOOK · CLICK TO CAPTURE</div>
-  <div id="hintbar"><span><b>WASD</b> move</span><span><b>SPACE</b> up</span><span><b>CTRL</b> down</span><span><b>F</b> takeoff</span><span><b>LMB</b> lasers</span><span><b>V</b> camera</span><span><b>ESC</b> pause</span></div>
 
   <div class="hud-bottom">
     <div class="vitals">
       <img class="hud-portrait" src="assets/epstein.jpg" alt="" />
-      <div class="bar-row"><span>HEALTH</span><div class="track"><div id="healthFill" class="fill health"></div></div><b id="healthNum">100</b></div>
-      <div class="bar-row"><span>ENERGY</span><div class="track"><div id="energyFill" class="fill energy"></div></div><b id="energyNum">100</b></div>
+      <div class="meter">
+        <span class="meter-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.2 8 11 4.6-1.8 8-6 8-11V5l-8-3Z"/><path d="M12 8v8M8 12h8"/></svg></span>
+        <div class="meter-body">
+          <div class="meter-head"><label>HEALTH</label><b id="healthNum">100</b></div>
+          <div class="track"><div id="healthFill" class="fill health"></div></div>
+        </div>
+      </div>
+      <div class="meter">
+        <span class="meter-icon energy" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></span>
+        <div class="meter-body">
+          <div class="meter-head"><label>ENERGY</label><b id="energyNum">100</b></div>
+          <div class="track"><div id="energyFill" class="fill energy"></div></div>
+        </div>
+      </div>
       <div class="cooldowns">
-        <span>LASER <b id="cdLaser">READY</b></span>
-        <span>BLAST <b id="cdBlast">READY</b></span>
-        <span>SHOCK <b id="cdShock">READY</b></span>
-        <span>BLINK <b id="cdBlink">READY</b></span>
-        <span>SPEED <b id="cdSpeed">READY</b></span>
+        <span class="cd"><small>LASER</small><b id="cdLaser">READY</b></span>
+        <span class="cd"><small>BLAST</small><b id="cdBlast">READY</b></span>
+        <span class="cd"><small>SHOCK</small><b id="cdShock">READY</b></span>
+        <span class="cd"><small>BLINK</small><b id="cdBlink">READY</b></span>
+        <span class="cd"><small>SPEED</small><b id="cdSpeed">READY</b></span>
       </div>
     </div>
-    <div class="map-wrap"><label>MINIMAP</label><canvas id="minimap" width="200" height="200"></canvas></div>
+    <div class="map-wrap"><label>RADAR</label><canvas id="minimap" width="200" height="200"></canvas></div>
   </div>
 </div>
 
@@ -94,14 +115,14 @@
     <h2>FLIGHT MANUAL</h2>
     <div class="manual">
       <section class="manual-col">
-        <h3>01 / Movement</h3>
+        <h3>Movement</h3>
         <div class="keyrow"><span class="keys"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span><span>Move and steer</span></div>
         <div class="keyrow"><span class="keys"><kbd>MOUSE</kbd></span><span>Look and aim</span></div>
         <div class="keyrow"><span class="keys"><kbd>SHIFT</kbd></span><span>Run / super speed</span></div>
         <div class="keyrow"><span class="keys"><kbd>ESC</kbd></span><span>Pause</span></div>
       </section>
       <section class="manual-col">
-        <h3>02 / Flight</h3>
+        <h3>Flight</h3>
         <div class="keyrow"><span class="keys"><kbd>SPACE</kbd></span><span>Ascend / jump</span></div>
         <div class="keyrow"><span class="keys"><kbd>CTRL</kbd></span><span>Descend</span></div>
         <div class="keyrow"><span class="keys"><kbd>F</kbd></span><span>Take off / hover hold</span></div>
@@ -109,7 +130,7 @@
         <div class="keyrow"><span class="keys"><kbd>R</kbd></span><span>Respawn at base</span></div>
       </section>
       <section class="manual-col">
-        <h3>03 / Weapons</h3>
+        <h3>Weapons</h3>
         <div class="keyrow"><span class="keys"><kbd>LMB</kbd></span><span>Eye lasers</span></div>
         <div class="keyrow"><span class="keys"><kbd>RMB</kbd></span><span>Energy blast</span></div>
         <div class="keyrow"><span class="keys"><kbd>Q</kbd></span><span>Shockwave</span></div>

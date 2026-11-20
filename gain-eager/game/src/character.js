@@ -123,7 +123,7 @@ export class Character {
     }
     this.group.traverse(o => { if (o.isMesh) o.castShadow = true; });
     // Optional real photoportrait overlay (public-domain booking photograph).
-    const FACE_PARTS = ['eyeWhite','pupil','brow','glasses','lens','eyeGlow','bridge','nose','mouth','hair','hairSide'];
+    const FACE_PARTS = ['eyeWhite','pupil','brow','glasses','lens','eyeGlow','bridge','nose','mouth'];
     this.faceParts = [];
     this.group.traverse(o => { if (o.isMesh && FACE_PARTS.includes(o.name)) this.faceParts.push(o); });
     const faceGeo = new THREE.PlaneGeometry(.32, .40, 10, 10);
