@@ -1,0 +1,32 @@
+{
+  "width": 960,
+  "height": 300,
+  "window": {
+    "x": 56,
+    "y": 40,
+    "width": 848,
+    "height": 192
+  },
+  "needle": {
+    "y1": 48,
+    "y2": 224
+  },
+  "bands": {
+    "amber": {
+      "x": 207,
+      "color": "#ffb347"
+    },
+    "cyan": {
+      "x": 441,
+      "color": "#3fe0ff"
+    },
+    "violet": {
+      "x": 655,
+      "color": "#9b7bff"
+    },
+    "all": {
+      "x": 821,
+      "color": "#f2f6ff"
+    }
+  }
+}

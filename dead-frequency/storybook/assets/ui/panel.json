@@ -1,0 +1,10 @@
+{
+  "width": 512,
+  "height": 512,
+  "slice": {
+    "left": 48,
+    "top": 48,
+    "right": 48,
+    "bottom": 48
+  }
+}
