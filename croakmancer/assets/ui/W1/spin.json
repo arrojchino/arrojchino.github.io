@@ -1,0 +1,1082 @@
+{
+  "fps": 60,
+  "frameCount": 192,
+  "durationSeconds": 3.2,
+  "pivotPx": {
+    "1x": [
+      112,
+      112
+    ],
+    "2x": [
+      224,
+      224
+    ]
+  },
+  "tickerPivotPx": {
+    "1x": [
+      111,
+      12.5
+    ],
+    "2x": [
+      222,
+      25
+    ]
+  },
+  "perFramePoseUnit": "clockwise degrees, x right and y down",
+  "segments": [
+    "fireball",
+    "swirl",
+    "toad",
+    "smoke"
+  ],
+  "segmentCentersDeg": [
+    45,
+    135,
+    225,
+    315
+  ],
+  "iconCentersPxAt1x": {
+    "fireball": [
+      152.5,
+      71.5
+    ],
+    "swirl": [
+      152.5,
+      152.5
+    ],
+    "toad": [
+      71.5,
+      152.5
+    ],
+    "smoke": [
+      71.5,
+      71.5
+    ]
+  },
+  "demoChosenSegment": "fireball",
+  "demoLandingDirection": "north-east",
+  "flareGain": 0.66,
+  "allTargetsRotationModulo360": {
+    "fireball": 0,
+    "swirl": 270,
+    "toad": 180,
+    "smoke": 90
+  },
+  "beats": {
+    "windup": 12,
+    "spinUp": 34,
+    "overshoot": 134,
+    "settle": 151,
+    "flareStart": 148,
+    "flarePeak": 164,
+    "end": 191
+  },
+  "tickFrames": [
+    13,
+    26,
+    30,
+    33,
+    37,
+    40,
+    44,
+    47,
+    51,
+    56,
+    61,
+    66,
+    72,
+    78,
+    87,
+    98,
+    119
+  ],
+  "poses": [
+    {
+      "clockwiseDeg": -0.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": -0.66987,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": -2.5,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": -5.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": -7.5,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": -9.33013,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": -10.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": -9.33013,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": -7.5,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": -5.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": -2.5,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": -0.66987,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": -0.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 0.05603,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 0.43785,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1.44254,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 3.33597,
+      "pointerClockwiseDeg": 4.1245,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 6.35267,
+      "pointerClockwiseDeg": -0.66065,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 10.69594,
+      "pointerClockwiseDeg": -3.20501,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 16.53779,
+      "pointerClockwiseDeg": -3.50962,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 24.01895,
+      "pointerClockwiseDeg": -2.39783,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 33.24889,
+      "pointerClockwiseDeg": -0.86949,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 44.3058,
+      "pointerClockwiseDeg": 0.34006,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 57.23657,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 72.05686,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 88.75103,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 107.27215,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 127.54205,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 149.45127,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 172.85907,
+      "pointerClockwiseDeg": 4.1245,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 197.59343,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 223.45107,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 250.19744,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 277.5667,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 305.26173,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 332.81604,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 359.97794,
+      "pointerClockwiseDeg": 4.1245,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 386.74911,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 413.13123,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 439.12598,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 464.73506,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 489.96019,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 514.80309,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 539.26548,
+      "pointerClockwiseDeg": 4.1245,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 563.34911,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 587.05574,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 610.38712,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 633.34504,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 655.93128,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 678.14765,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 699.99595,
+      "pointerClockwiseDeg": 4.1245,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 721.47801,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 742.59568,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 763.35079,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 783.74522,
+      "pointerClockwiseDeg": 4.1245,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 803.78083,
+      "pointerClockwiseDeg": -0.66065,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 823.45953,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 842.78321,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 861.7538,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 880.37322,
+      "pointerClockwiseDeg": 4.1245,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 898.64343,
+      "pointerClockwiseDeg": -0.66065,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 916.56639,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 934.14408,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 951.37848,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 968.27162,
+      "pointerClockwiseDeg": 4.1245,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 984.82552,
+      "pointerClockwiseDeg": -0.66065,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1001.04223,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1016.9238,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1032.47231,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1047.68986,
+      "pointerClockwiseDeg": 4.1245,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1062.57857,
+      "pointerClockwiseDeg": -0.66065,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1077.14057,
+      "pointerClockwiseDeg": -3.20501,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1091.37802,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1105.29308,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1118.88796,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1132.16486,
+      "pointerClockwiseDeg": 4.1245,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1145.12603,
+      "pointerClockwiseDeg": -0.66065,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1157.77372,
+      "pointerClockwiseDeg": -3.20501,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1170.11022,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1182.13783,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1193.85887,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1205.27571,
+      "pointerClockwiseDeg": 4.1245,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1216.39072,
+      "pointerClockwiseDeg": -0.66065,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1227.2063,
+      "pointerClockwiseDeg": -3.20501,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1237.72489,
+      "pointerClockwiseDeg": -3.50962,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1247.94896,
+      "pointerClockwiseDeg": -2.39783,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1257.88097,
+      "pointerClockwiseDeg": -0.86949,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1267.52347,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1276.87899,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1285.95011,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1294.73945,
+      "pointerClockwiseDeg": 4.1245,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1303.24966,
+      "pointerClockwiseDeg": -0.66065,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1311.48341,
+      "pointerClockwiseDeg": -3.20501,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1319.44344,
+      "pointerClockwiseDeg": -3.50962,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1327.13248,
+      "pointerClockwiseDeg": -2.39783,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1334.55334,
+      "pointerClockwiseDeg": -0.86949,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1341.70886,
+      "pointerClockwiseDeg": 0.34006,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1348.60192,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1355.23543,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1361.61238,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1367.73576,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1373.60867,
+      "pointerClockwiseDeg": 4.1245,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1379.23421,
+      "pointerClockwiseDeg": -0.66065,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1384.61556,
+      "pointerClockwiseDeg": -3.20501,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1389.75596,
+      "pointerClockwiseDeg": -3.50962,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1394.65871,
+      "pointerClockwiseDeg": -2.39783,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1399.32716,
+      "pointerClockwiseDeg": -0.86949,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1403.76474,
+      "pointerClockwiseDeg": 0.34006,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1407.97495,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1411.96138,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1415.72767,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1419.27756,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1422.6149,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1425.74361,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1428.66774,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1431.39142,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1433.91894,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1436.25471,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1438.40326,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1440.36932,
+      "pointerClockwiseDeg": 10.89336,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1442.15776,
+      "pointerClockwiseDeg": 13.23651,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1443.77365,
+      "pointerClockwiseDeg": 9.73903,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1445.22229,
+      "pointerClockwiseDeg": 4.1245,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1446.50921,
+      "pointerClockwiseDeg": -0.66065,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1447.64022,
+      "pointerClockwiseDeg": -3.20501,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1448.62144,
+      "pointerClockwiseDeg": -3.50962,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1449.45937,
+      "pointerClockwiseDeg": -2.39783,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1450.16092,
+      "pointerClockwiseDeg": -0.86949,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1450.73354,
+      "pointerClockwiseDeg": 0.34006,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1451.18535,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1451.52527,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1451.76335,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1451.91129,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1451.98342,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1452.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1451.88032,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1451.54081,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1451.01079,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1450.31956,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1449.49644,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1448.57073,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1447.57175,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1446.5288,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1445.4712,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1444.42825,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1443.42927,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1442.50356,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1441.68044,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1440.98921,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.0
+    },
+    {
+      "clockwiseDeg": 1440.45919,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.01123
+    },
+    {
+      "clockwiseDeg": 1440.11968,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.04297
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.09229
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.15625
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.23193
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.31641
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.40674
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.5
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.59326
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.68359
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.76807
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.84375
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.90771
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.95703
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.98877
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 1.0
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.99646
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.98623
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.96992
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.94815
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.92151
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.89062
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.85609
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.81852
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.77852
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.73669
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.69365
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.65
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.60635
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.56331
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.52148
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.48148
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.44391
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.40938
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.37849
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.35185
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.33008
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.31377
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.30354
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.3
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.3
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.3
+    },
+    {
+      "clockwiseDeg": 1440.0,
+      "pointerClockwiseDeg": 0,
+      "flare": 0.3
+    }
+  ],
+  "wheelLayers": [
+    "rim_spokes_hub",
+    "enamel_fields",
+    "segment_disc",
+    "pointer",
+    "rim_spokes_hub_glow",
+    "segment_disc_glow",
+    "flare_fireball_glow",
+    "flare_swirl_glow",
+    "flare_toad_glow",
+    "flare_smoke_glow"
+  ],
+  "stackBottomToTop": [
+    "segment_disc (contains enamel and icons, rotating)",
+    "segment_disc_glow (rotating, optional additive)",
+    "selected flare (rotating, additive)",
+    "rim_spokes_hub (static)",
+    "rim_spokes_hub_glow (static, optional additive)",
+    "pointer (animated, stationary origin)"
+  ],
+  "alternateAssembly": "Use enamel_fields plus the individual icons instead of segment_disc, not both.",
+  "previewAudio": false,
+  "videoMatteRGB": [
+    17,
+    19,
+    30
+  ]
+}

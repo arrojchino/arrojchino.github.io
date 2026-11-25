@@ -1,0 +1,114 @@
+{
+  "AMB1": {
+    "texture": "AMB1_dust.png",
+    "frameSize": [
+      384,
+      216
+    ],
+    "columns": 4,
+    "rows": 6,
+    "frameCount": 24,
+    "fps": 12,
+    "loop": true,
+    "duration": 2.0,
+    "blendMode": "alpha",
+    "frameOrder": "left-to-right, top-to-bottom",
+    "tileX": false,
+    "seed": 50843,
+    "emissive": false
+  },
+  "AMB2": {
+    "texture": "AMB2_fireflies.png",
+    "frameSize": [
+      384,
+      216
+    ],
+    "columns": 4,
+    "rows": 6,
+    "frameCount": 24,
+    "fps": 12,
+    "loop": true,
+    "duration": 2.0,
+    "blendMode": "add",
+    "frameOrder": "left-to-right, top-to-bottom",
+    "tileX": false,
+    "seed": 50844,
+    "emissive": true,
+    "glowTexture": "AMB2_fireflies_glow.png",
+    "glowBlendMode": "add"
+  },
+  "AMB3": {
+    "texture": "AMB3_flame.png",
+    "frameSize": [
+      64,
+      64
+    ],
+    "columns": 4,
+    "rows": 6,
+    "frameCount": 24,
+    "fps": 12,
+    "loop": true,
+    "duration": 2.0,
+    "blendMode": "alpha",
+    "frameOrder": "left-to-right, top-to-bottom",
+    "tileX": false,
+    "seed": 50845,
+    "emissive": true,
+    "glowTexture": "AMB3_flame_glow.png",
+    "glowBlendMode": "add"
+  },
+  "AMB4": {
+    "texture": "AMB4_shafts.png",
+    "frameSize": [
+      384,
+      216
+    ],
+    "columns": 4,
+    "rows": 6,
+    "frameCount": 24,
+    "fps": 12,
+    "loop": true,
+    "duration": 2.0,
+    "blendMode": "add",
+    "frameOrder": "left-to-right, top-to-bottom",
+    "tileX": false,
+    "seed": 50846,
+    "emissive": true
+  },
+  "AMB5": {
+    "texture": "AMB5_fog_strip.png",
+    "frameSize": [
+      384,
+      96
+    ],
+    "columns": 4,
+    "rows": 6,
+    "frameCount": 24,
+    "fps": 12,
+    "loop": true,
+    "duration": 2.0,
+    "blendMode": "alpha",
+    "frameOrder": "left-to-right, top-to-bottom",
+    "tileX": true,
+    "seed": 50847,
+    "emissive": false
+  },
+  "AMB6": {
+    "texture": "AMB6_toad_rain.png",
+    "frameSize": [
+      384,
+      216
+    ],
+    "columns": 4,
+    "rows": 6,
+    "frameCount": 24,
+    "fps": 12,
+    "loop": true,
+    "duration": 2.0,
+    "blendMode": "alpha",
+    "frameOrder": "left-to-right, top-to-bottom",
+    "tileX": false,
+    "seed": 50848,
+    "emissive": false
+  }
+}

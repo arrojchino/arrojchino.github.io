@@ -1,0 +1,388 @@
+{
+  "insetOrder": [
+    "left",
+    "top",
+    "right",
+    "bottom"
+  ],
+  "assets": {
+    "F1_reel_frame_9slice": {
+      "edgeMode": "tile",
+      "partialEdgeEndTaperPx": {
+        "1x": 8,
+        "2x": 16
+      },
+      "centerMode": "transparent",
+      "1x": {
+        "size": [
+          96,
+          96
+        ],
+        "insets": [
+          32,
+          32,
+          32,
+          32
+        ]
+      },
+      "2x": {
+        "size": [
+          192,
+          192
+        ],
+        "insets": [
+          64,
+          64,
+          64,
+          64
+        ]
+      },
+      "glow": "F1_reel_frame_9slice_glow"
+    },
+    "U1_panel_9slice": {
+      "edgeMode": "tile",
+      "partialEdgeEndTaperPx": {
+        "1x": 8,
+        "2x": 16
+      },
+      "centerMode": "stretch",
+      "1x": {
+        "size": [
+          96,
+          96
+        ],
+        "insets": [
+          32,
+          32,
+          32,
+          32
+        ]
+      },
+      "2x": {
+        "size": [
+          192,
+          192
+        ],
+        "insets": [
+          64,
+          64,
+          64,
+          64
+        ]
+      }
+    },
+    "P1_royal_hoard_9slice": {
+      "edgeMode": "tile",
+      "partialEdgeEndTaperPx": {
+        "1x": 8,
+        "2x": 16
+      },
+      "centerMode": "stretch",
+      "1x": {
+        "size": [
+          96,
+          96
+        ],
+        "insets": [
+          32,
+          32,
+          32,
+          32
+        ]
+      },
+      "2x": {
+        "size": [
+          192,
+          192
+        ],
+        "insets": [
+          64,
+          64,
+          64,
+          64
+        ]
+      }
+    },
+    "M1_candle_frame_9slice": {
+      "edgeMode": "tile",
+      "partialEdgeEndTaperPx": {
+        "1x": 8,
+        "2x": 16
+      },
+      "centerMode": "stretch",
+      "1x": {
+        "size": [
+          96,
+          96
+        ],
+        "insets": [
+          32,
+          13,
+          32,
+          13
+        ]
+      },
+      "2x": {
+        "size": [
+          192,
+          192
+        ],
+        "insets": [
+          64,
+          26,
+          64,
+          26
+        ]
+      }
+    },
+    "U2_normal_9slice": {
+      "edgeMode": "tile",
+      "partialEdgeEndTaperPx": {
+        "1x": 8,
+        "2x": 16
+      },
+      "centerMode": "tile-x",
+      "1x": {
+        "size": [
+          192,
+          64
+        ],
+        "insets": [
+          34,
+          18,
+          34,
+          18
+        ]
+      },
+      "2x": {
+        "size": [
+          384,
+          128
+        ],
+        "insets": [
+          68,
+          36,
+          68,
+          36
+        ]
+      }
+    },
+    "U2_hover_9slice": {
+      "edgeMode": "tile",
+      "partialEdgeEndTaperPx": {
+        "1x": 8,
+        "2x": 16
+      },
+      "centerMode": "tile-x",
+      "1x": {
+        "size": [
+          192,
+          64
+        ],
+        "insets": [
+          34,
+          18,
+          34,
+          18
+        ]
+      },
+      "2x": {
+        "size": [
+          384,
+          128
+        ],
+        "insets": [
+          68,
+          36,
+          68,
+          36
+        ]
+      },
+      "glow": "U2_hover_9slice_glow"
+    },
+    "U2_pressed_9slice": {
+      "edgeMode": "tile",
+      "partialEdgeEndTaperPx": {
+        "1x": 8,
+        "2x": 16
+      },
+      "centerMode": "tile-x",
+      "1x": {
+        "size": [
+          192,
+          64
+        ],
+        "insets": [
+          34,
+          20,
+          34,
+          16
+        ]
+      },
+      "2x": {
+        "size": [
+          384,
+          128
+        ],
+        "insets": [
+          68,
+          40,
+          68,
+          32
+        ]
+      }
+    },
+    "G2_bigwin_bronze_9slice": {
+      "directory": "../branding",
+      "useAspect": [
+        4,
+        1
+      ],
+      "edgeMode": "tile",
+      "partialEdgeEndTaperPx": {
+        "1x": 8,
+        "2x": 16
+      },
+      "centerMode": "stretch",
+      "1x": {
+        "size": [
+          128,
+          128
+        ],
+        "insets": [
+          56,
+          28,
+          56,
+          25
+        ]
+      },
+      "2x": {
+        "size": [
+          256,
+          256
+        ],
+        "insets": [
+          112,
+          56,
+          112,
+          50
+        ]
+      },
+      "glow": "G2_bigwin_bronze_9slice_glow"
+    },
+    "G2_bigwin_silver_9slice": {
+      "directory": "../branding",
+      "useAspect": [
+        4,
+        1
+      ],
+      "edgeMode": "tile",
+      "partialEdgeEndTaperPx": {
+        "1x": 8,
+        "2x": 16
+      },
+      "centerMode": "stretch",
+      "1x": {
+        "size": [
+          128,
+          128
+        ],
+        "insets": [
+          56,
+          28,
+          56,
+          25
+        ]
+      },
+      "2x": {
+        "size": [
+          256,
+          256
+        ],
+        "insets": [
+          112,
+          56,
+          112,
+          50
+        ]
+      },
+      "glow": "G2_bigwin_silver_9slice_glow"
+    },
+    "G2_bigwin_gold_9slice": {
+      "directory": "../branding",
+      "useAspect": [
+        4,
+        1
+      ],
+      "edgeMode": "tile",
+      "partialEdgeEndTaperPx": {
+        "1x": 8,
+        "2x": 16
+      },
+      "centerMode": "stretch",
+      "1x": {
+        "size": [
+          128,
+          128
+        ],
+        "insets": [
+          56,
+          28,
+          56,
+          25
+        ]
+      },
+      "2x": {
+        "size": [
+          256,
+          256
+        ],
+        "insets": [
+          112,
+          56,
+          112,
+          50
+        ]
+      },
+      "glow": "G2_bigwin_gold_9slice_glow"
+    },
+    "G2_bigwin_rainbow_9slice": {
+      "directory": "../branding",
+      "useAspect": [
+        4,
+        1
+      ],
+      "edgeMode": "tile",
+      "partialEdgeEndTaperPx": {
+        "1x": 8,
+        "2x": 16
+      },
+      "centerMode": "stretch",
+      "1x": {
+        "size": [
+          128,
+          128
+        ],
+        "insets": [
+          56,
+          28,
+          56,
+          25
+        ]
+      },
+      "2x": {
+        "size": [
+          256,
+          256
+        ],
+        "insets": [
+          112,
+          56,
+          112,
+          50
+        ]
+      },
+      "glow": "G2_bigwin_rainbow_9slice_glow"
+    }
+  }
+}
