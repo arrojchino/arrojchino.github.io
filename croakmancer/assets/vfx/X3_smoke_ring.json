@@ -1,0 +1,306 @@
+{
+  "id": "X3",
+  "event": "spellCast:dud",
+  "fps": 30,
+  "frameCount": 18,
+  "durationSeconds": 0.6,
+  "loop": false,
+  "frameSize": {
+    "width": 256,
+    "height": 256
+  },
+  "atlasSize": {
+    "width": 2048,
+    "height": 1024
+  },
+  "columns": 8,
+  "rows": 4,
+  "frameOrder": "row-major, left-to-right, top-to-bottom",
+  "pivot": {
+    "x": 0.5,
+    "y": 0.68,
+    "units": "normalized top-left origin"
+  },
+  "blendModes": {
+    "color": "normal",
+    "glow": "additive (srcAlpha, one)"
+  },
+  "textureAlpha": "straight",
+  "atlases": {
+    "color": "X3_smoke_ring_flipbook.png",
+    "glow": "X3_smoke_ring_glow_add.png"
+  },
+  "sampling": {
+    "filter": "linear",
+    "mipmaps": false,
+    "tileGutterPixels": 3
+  },
+  "recommendedScale": {
+    "multiplierAt1920x1080": 1.1796875,
+    "frameWidthAt1920x1080": 302,
+    "frameWidthIn128pxCells": 2.359375
+  },
+  "frames": [
+    {
+      "x": 0,
+      "y": 0,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 256,
+      "y": 0,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 512,
+      "y": 0,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 768,
+      "y": 0,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 1024,
+      "y": 0,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 1280,
+      "y": 0,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 1536,
+      "y": 0,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 1792,
+      "y": 0,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 0,
+      "y": 256,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 256,
+      "y": 256,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 512,
+      "y": 256,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 768,
+      "y": 256,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 1024,
+      "y": 256,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 1280,
+      "y": 256,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 1536,
+      "y": 256,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 1792,
+      "y": 256,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 0,
+      "y": 512,
+      "w": 256,
+      "h": 256
+    },
+    {
+      "x": 256,
+      "y": 512,
+      "w": 256,
+      "h": 256
+    }
+  ],
+  "scale2x": {
+    "id": "X3",
+    "event": "spellCast:dud",
+    "fps": 30,
+    "frameCount": 18,
+    "durationSeconds": 0.6,
+    "loop": false,
+    "frameSize": {
+      "width": 512,
+      "height": 512
+    },
+    "atlasSize": {
+      "width": 4096,
+      "height": 2048
+    },
+    "columns": 8,
+    "rows": 4,
+    "frameOrder": "row-major, left-to-right, top-to-bottom",
+    "pivot": {
+      "x": 0.5,
+      "y": 0.68,
+      "units": "normalized top-left origin"
+    },
+    "blendModes": {
+      "color": "normal",
+      "glow": "additive (srcAlpha, one)"
+    },
+    "textureAlpha": "straight",
+    "atlases": {
+      "color": "X3_smoke_ring_flipbook_2x.png",
+      "glow": "X3_smoke_ring_glow_add_2x.png"
+    },
+    "sampling": {
+      "filter": "linear",
+      "mipmaps": false,
+      "tileGutterPixels": 6
+    },
+    "recommendedScale": {
+      "multiplierAt1920x1080": 0.58984375,
+      "frameWidthAt1920x1080": 302,
+      "frameWidthIn128pxCells": 2.359375
+    },
+    "frames": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 512,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 1024,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 1536,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 2048,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 2560,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 3072,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 3584,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 0,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 512,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 1024,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 1536,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 2048,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 2560,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 3072,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 3584,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 0,
+        "y": 1024,
+        "w": 512,
+        "h": 512
+      },
+      {
+        "x": 512,
+        "y": 1024,
+        "w": 512,
+        "h": 512
+      }
+    ]
+  }
+}
