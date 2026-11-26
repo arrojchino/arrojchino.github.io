@@ -1,0 +1,3399 @@
+{
+  "fps": 60,
+  "frameCount": 240,
+  "durationSeconds": 4.0,
+  "canvasPx": [
+    768,
+    432
+  ],
+  "bannerSizePx": [
+    512,
+    128
+  ],
+  "originPx": [
+    384,
+    216
+  ],
+  "emptyCenter": true,
+  "previewAudio": false,
+  "tierBeats": [
+    {
+      "tier": "bronze",
+      "engineTitle": "Big Hex",
+      "frame": 10,
+      "coins": 15,
+      "toads": 3
+    },
+    {
+      "tier": "silver",
+      "engineTitle": "Mega Hex",
+      "frame": 72,
+      "coins": 20,
+      "toads": 4
+    },
+    {
+      "tier": "gold",
+      "engineTitle": "Epic Hex",
+      "frame": 124,
+      "coins": 27,
+      "toads": 5
+    },
+    {
+      "tier": "rainbow",
+      "engineTitle": "CROAKMANCER",
+      "frame": 174,
+      "coins": 37,
+      "toads": 7
+    }
+  ],
+  "poses": [
+    {
+      "tier": "bronze",
+      "scale": 0.55014,
+      "alpha": 0.0,
+      "flash": 0,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.55537,
+      "alpha": 0.01968,
+      "flash": 0,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.56999,
+      "alpha": 0.07407,
+      "flash": 0,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.59283,
+      "alpha": 0.15625,
+      "flash": 0,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.62279,
+      "alpha": 0.25926,
+      "flash": 0,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.65884,
+      "alpha": 0.37616,
+      "flash": 0,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.70008,
+      "alpha": 0.5,
+      "flash": 0,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.74569,
+      "alpha": 0.62384,
+      "flash": 0,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.79485,
+      "alpha": 0.74074,
+      "flash": 0,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.84665,
+      "alpha": 0.84375,
+      "flash": 0,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.89995,
+      "alpha": 0.92593,
+      "flash": 0.02179,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.95321,
+      "alpha": 0.98032,
+      "flash": 0.08283,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.00439,
+      "alpha": 1.0,
+      "flash": 0.17105,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.05091,
+      "alpha": 1.0,
+      "flash": 0.26895,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.08975,
+      "alpha": 1.0,
+      "flash": 0.35717,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.11771,
+      "alpha": 1.0,
+      "flash": 0.41821,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.13172,
+      "alpha": 1.0,
+      "flash": 0.44,
+      "sweepX": -97.142
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.1347,
+      "alpha": 1.0,
+      "flash": 0.41821,
+      "sweepX": -88.859
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.13115,
+      "alpha": 1.0,
+      "flash": 0.35717,
+      "sweepX": -75.583
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.12132,
+      "alpha": 1.0,
+      "flash": 0.26895,
+      "sweepX": -57.75
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.10616,
+      "alpha": 1.0,
+      "flash": 0.17105,
+      "sweepX": -35.792
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.08709,
+      "alpha": 1.0,
+      "flash": 0.08283,
+      "sweepX": -10.145
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0657,
+      "alpha": 1.0,
+      "flash": 0.02179,
+      "sweepX": 18.757
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0436,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 50.481
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.02229,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 84.593
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.00317,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 120.657
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.98747,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 158.242
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.97615,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 196.911
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.9697,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 236.231
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.96796,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 275.769
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.97009,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 315.089
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.97479,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 353.758
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.98062,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 391.343
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.98634,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 427.407
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.99114,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 461.519
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.99471,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 493.243
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.99709,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 522.145
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.99852,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 547.792
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.99931,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 569.75
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.9997,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 587.583
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.99988,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 600.859
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.99996,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 609.142
+    },
+    {
+      "tier": "bronze",
+      "scale": 0.99999,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "bronze",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.02193,
+      "alpha": 1.0,
+      "flash": 0.02501,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.03244,
+      "alpha": 1.0,
+      "flash": 0.09507,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.04469,
+      "alpha": 1.0,
+      "flash": 0.19631,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.05734,
+      "alpha": 1.0,
+      "flash": 0.30869,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.06851,
+      "alpha": 1.0,
+      "flash": 0.40993,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.07622,
+      "alpha": 1.0,
+      "flash": 0.47999,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.07896,
+      "alpha": 1.0,
+      "flash": 0.505,
+      "sweepX": -97.142
+    },
+    {
+      "tier": "silver",
+      "scale": 1.07611,
+      "alpha": 1.0,
+      "flash": 0.47999,
+      "sweepX": -88.859
+    },
+    {
+      "tier": "silver",
+      "scale": 1.06816,
+      "alpha": 1.0,
+      "flash": 0.40993,
+      "sweepX": -75.583
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0565,
+      "alpha": 1.0,
+      "flash": 0.30869,
+      "sweepX": -57.75
+    },
+    {
+      "tier": "silver",
+      "scale": 1.04286,
+      "alpha": 1.0,
+      "flash": 0.19631,
+      "sweepX": -35.792
+    },
+    {
+      "tier": "silver",
+      "scale": 1.02886,
+      "alpha": 1.0,
+      "flash": 0.09507,
+      "sweepX": -10.145
+    },
+    {
+      "tier": "silver",
+      "scale": 1.01561,
+      "alpha": 1.0,
+      "flash": 0.02501,
+      "sweepX": 18.757
+    },
+    {
+      "tier": "silver",
+      "scale": 1.00374,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 50.481
+    },
+    {
+      "tier": "silver",
+      "scale": 0.99364,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 84.593
+    },
+    {
+      "tier": "silver",
+      "scale": 0.98571,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 120.657
+    },
+    {
+      "tier": "silver",
+      "scale": 0.9804,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 158.242
+    },
+    {
+      "tier": "silver",
+      "scale": 0.97806,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 196.911
+    },
+    {
+      "tier": "silver",
+      "scale": 0.97863,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 236.231
+    },
+    {
+      "tier": "silver",
+      "scale": 0.98149,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 275.769
+    },
+    {
+      "tier": "silver",
+      "scale": 0.98562,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 315.089
+    },
+    {
+      "tier": "silver",
+      "scale": 0.98996,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 353.758
+    },
+    {
+      "tier": "silver",
+      "scale": 0.99369,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 391.343
+    },
+    {
+      "tier": "silver",
+      "scale": 0.99642,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 427.407
+    },
+    {
+      "tier": "silver",
+      "scale": 0.99817,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 461.519
+    },
+    {
+      "tier": "silver",
+      "scale": 0.99916,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 493.243
+    },
+    {
+      "tier": "silver",
+      "scale": 0.99965,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 522.145
+    },
+    {
+      "tier": "silver",
+      "scale": 0.99987,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 547.792
+    },
+    {
+      "tier": "silver",
+      "scale": 0.99996,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 569.75
+    },
+    {
+      "tier": "silver",
+      "scale": 0.99999,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 587.583
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 600.859
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 609.142
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "silver",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.02193,
+      "alpha": 1.0,
+      "flash": 0.02822,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.03244,
+      "alpha": 1.0,
+      "flash": 0.10731,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.04469,
+      "alpha": 1.0,
+      "flash": 0.22158,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.05734,
+      "alpha": 1.0,
+      "flash": 0.34842,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.06851,
+      "alpha": 1.0,
+      "flash": 0.46269,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.07622,
+      "alpha": 1.0,
+      "flash": 0.54178,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.07896,
+      "alpha": 1.0,
+      "flash": 0.57,
+      "sweepX": -97.142
+    },
+    {
+      "tier": "gold",
+      "scale": 1.07611,
+      "alpha": 1.0,
+      "flash": 0.54178,
+      "sweepX": -88.859
+    },
+    {
+      "tier": "gold",
+      "scale": 1.06816,
+      "alpha": 1.0,
+      "flash": 0.46269,
+      "sweepX": -75.583
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0565,
+      "alpha": 1.0,
+      "flash": 0.34842,
+      "sweepX": -57.75
+    },
+    {
+      "tier": "gold",
+      "scale": 1.04286,
+      "alpha": 1.0,
+      "flash": 0.22158,
+      "sweepX": -35.792
+    },
+    {
+      "tier": "gold",
+      "scale": 1.02886,
+      "alpha": 1.0,
+      "flash": 0.10731,
+      "sweepX": -10.145
+    },
+    {
+      "tier": "gold",
+      "scale": 1.01561,
+      "alpha": 1.0,
+      "flash": 0.02822,
+      "sweepX": 18.757
+    },
+    {
+      "tier": "gold",
+      "scale": 1.00374,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 50.481
+    },
+    {
+      "tier": "gold",
+      "scale": 0.99364,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 84.593
+    },
+    {
+      "tier": "gold",
+      "scale": 0.98571,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 120.657
+    },
+    {
+      "tier": "gold",
+      "scale": 0.9804,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 158.242
+    },
+    {
+      "tier": "gold",
+      "scale": 0.97806,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 196.911
+    },
+    {
+      "tier": "gold",
+      "scale": 0.97863,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 236.231
+    },
+    {
+      "tier": "gold",
+      "scale": 0.98149,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 275.769
+    },
+    {
+      "tier": "gold",
+      "scale": 0.98562,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 315.089
+    },
+    {
+      "tier": "gold",
+      "scale": 0.98996,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 353.758
+    },
+    {
+      "tier": "gold",
+      "scale": 0.99369,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 391.343
+    },
+    {
+      "tier": "gold",
+      "scale": 0.99642,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 427.407
+    },
+    {
+      "tier": "gold",
+      "scale": 0.99817,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 461.519
+    },
+    {
+      "tier": "gold",
+      "scale": 0.99916,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 493.243
+    },
+    {
+      "tier": "gold",
+      "scale": 0.99965,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 522.145
+    },
+    {
+      "tier": "gold",
+      "scale": 0.99987,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 547.792
+    },
+    {
+      "tier": "gold",
+      "scale": 0.99996,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 569.75
+    },
+    {
+      "tier": "gold",
+      "scale": 0.99999,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 587.583
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 600.859
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 609.142
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "gold",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.02193,
+      "alpha": 1.0,
+      "flash": 0.03144,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.03244,
+      "alpha": 1.0,
+      "flash": 0.11954,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.04469,
+      "alpha": 1.0,
+      "flash": 0.24685,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.05734,
+      "alpha": 1.0,
+      "flash": 0.38815,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.06851,
+      "alpha": 1.0,
+      "flash": 0.51546,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.07622,
+      "alpha": 1.0,
+      "flash": 0.60356,
+      "sweepX": -100.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.07896,
+      "alpha": 1.0,
+      "flash": 0.635,
+      "sweepX": -97.142
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.07611,
+      "alpha": 1.0,
+      "flash": 0.60356,
+      "sweepX": -88.859
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.06816,
+      "alpha": 1.0,
+      "flash": 0.51546,
+      "sweepX": -75.583
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0565,
+      "alpha": 1.0,
+      "flash": 0.38815,
+      "sweepX": -57.75
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.04286,
+      "alpha": 1.0,
+      "flash": 0.24685,
+      "sweepX": -35.792
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.02886,
+      "alpha": 1.0,
+      "flash": 0.11954,
+      "sweepX": -10.145
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.01561,
+      "alpha": 1.0,
+      "flash": 0.03144,
+      "sweepX": 18.757
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.00374,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 50.481
+    },
+    {
+      "tier": "rainbow",
+      "scale": 0.99364,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 84.593
+    },
+    {
+      "tier": "rainbow",
+      "scale": 0.98571,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 120.657
+    },
+    {
+      "tier": "rainbow",
+      "scale": 0.9804,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 158.242
+    },
+    {
+      "tier": "rainbow",
+      "scale": 0.97806,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 196.911
+    },
+    {
+      "tier": "rainbow",
+      "scale": 0.97863,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 236.231
+    },
+    {
+      "tier": "rainbow",
+      "scale": 0.98149,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 275.769
+    },
+    {
+      "tier": "rainbow",
+      "scale": 0.98562,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 315.089
+    },
+    {
+      "tier": "rainbow",
+      "scale": 0.98996,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 353.758
+    },
+    {
+      "tier": "rainbow",
+      "scale": 0.99369,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 391.343
+    },
+    {
+      "tier": "rainbow",
+      "scale": 0.99642,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 427.407
+    },
+    {
+      "tier": "rainbow",
+      "scale": 0.99817,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 461.519
+    },
+    {
+      "tier": "rainbow",
+      "scale": 0.99916,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 493.243
+    },
+    {
+      "tier": "rainbow",
+      "scale": 0.99965,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 522.145
+    },
+    {
+      "tier": "rainbow",
+      "scale": 0.99987,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 547.792
+    },
+    {
+      "tier": "rainbow",
+      "scale": 0.99996,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 569.75
+    },
+    {
+      "tier": "rainbow",
+      "scale": 0.99999,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 587.583
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 600.859
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 609.142
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    },
+    {
+      "tier": "rainbow",
+      "scale": 1.0,
+      "alpha": 1.0,
+      "flash": 0,
+      "sweepX": 612.0
+    }
+  ],
+  "particles": [
+    {
+      "kind": "coin",
+      "tier": 0,
+      "start": 11,
+      "side": -1,
+      "life": 29,
+      "x": 199.34312,
+      "y": 12.64286,
+      "vx": 84.65075,
+      "vy": 208.72671,
+      "size": 11.25365,
+      "spin": -374.93726,
+      "phase": 6.01245
+    },
+    {
+      "kind": "coin",
+      "tier": 0,
+      "start": 10,
+      "side": 1,
+      "life": 39,
+      "x": 230.54945,
+      "y": 11.94018,
+      "vx": 222.93128,
+      "vy": 103.48164,
+      "size": 21.2672,
+      "spin": -11.75551,
+      "phase": 1.87714
+    },
+    {
+      "kind": "coin",
+      "tier": 0,
+      "start": 11,
+      "side": -1,
+      "life": 43,
+      "x": 210.18279,
+      "y": 11.01017,
+      "vx": 94.26603,
+      "vy": 232.70886,
+      "size": 25.05352,
+      "spin": -429.69151,
+      "phase": 2.67508
+    },
+    {
+      "kind": "coin",
+      "tier": 0,
+      "start": 13,
+      "side": 1,
+      "life": 61,
+      "x": 232.39351,
+      "y": -20.27021,
+      "vx": 140.33713,
+      "vy": 207.95403,
+      "size": 13.52238,
+      "spin": 241.50279,
+      "phase": 2.87893
+    },
+    {
+      "kind": "coin",
+      "tier": 0,
+      "start": 14,
+      "side": -1,
+      "life": 55,
+      "x": 200.92548,
+      "y": 21.6215,
+      "vx": 69.73756,
+      "vy": 153.19346,
+      "size": 13.00965,
+      "spin": -112.76928,
+      "phase": 5.67
+    },
+    {
+      "kind": "coin",
+      "tier": 0,
+      "start": 10,
+      "side": 1,
+      "life": 37,
+      "x": 213.06332,
+      "y": 23.06869,
+      "vx": 112.59637,
+      "vy": 131.86749,
+      "size": 22.8078,
+      "spin": -188.16827,
+      "phase": 2.40897
+    },
+    {
+      "kind": "coin",
+      "tier": 0,
+      "start": 10,
+      "side": -1,
+      "life": 33,
+      "x": 214.49462,
+      "y": -19.81934,
+      "vx": 137.22405,
+      "vy": 160.63998,
+      "size": 11.30341,
+      "spin": -499.72781,
+      "phase": 4.27922
+    },
+    {
+      "kind": "coin",
+      "tier": 0,
+      "start": 11,
+      "side": 1,
+      "life": 59,
+      "x": 231.27911,
+      "y": 22.53899,
+      "vx": 110.07416,
+      "vy": 262.73271,
+      "size": 12.74127,
+      "spin": -100.14709,
+      "phase": 5.21717
+    },
+    {
+      "kind": "coin",
+      "tier": 0,
+      "start": 18,
+      "side": -1,
+      "life": 48,
+      "x": 204.9869,
+      "y": 2.96245,
+      "vx": 233.90135,
+      "vy": 260.88174,
+      "size": 14.23302,
+      "spin": -152.4013,
+      "phase": 1.04212
+    },
+    {
+      "kind": "coin",
+      "tier": 0,
+      "start": 14,
+      "side": 1,
+      "life": 34,
+      "x": 220.03272,
+      "y": 4.09625,
+      "vx": 119.98523,
+      "vy": 215.41396,
+      "size": 11.84886,
+      "spin": -60.00226,
+      "phase": 0.42289
+    },
+    {
+      "kind": "coin",
+      "tier": 0,
+      "start": 18,
+      "side": -1,
+      "life": 56,
+      "x": 204.8221,
+      "y": -13.59497,
+      "vx": 197.89734,
+      "vy": 168.28817,
+      "size": 15.85818,
+      "spin": 478.95925,
+      "phase": 0.09186
+    },
+    {
+      "kind": "coin",
+      "tier": 0,
+      "start": 15,
+      "side": 1,
+      "life": 27,
+      "x": 195.54629,
+      "y": -21.36063,
+      "vx": 87.24238,
+      "vy": 218.69833,
+      "size": 22.37025,
+      "spin": -313.0764,
+      "phase": 0.86019
+    },
+    {
+      "kind": "coin",
+      "tier": 0,
+      "start": 11,
+      "side": -1,
+      "life": 40,
+      "x": 240.66057,
+      "y": 9.8487,
+      "vx": 118.70459,
+      "vy": 195.43689,
+      "size": 16.29296,
+      "spin": -21.48995,
+      "phase": 5.93595
+    },
+    {
+      "kind": "coin",
+      "tier": 0,
+      "start": 11,
+      "side": 1,
+      "life": 52,
+      "x": 199.05129,
+      "y": 12.64425,
+      "vx": 133.97853,
+      "vy": 227.41204,
+      "size": 16.44155,
+      "spin": 413.80861,
+      "phase": 2.86548
+    },
+    {
+      "kind": "coin",
+      "tier": 0,
+      "start": 11,
+      "side": -1,
+      "life": 56,
+      "x": 198.52451,
+      "y": 19.84043,
+      "vx": 65.94832,
+      "vy": 104.36332,
+      "size": 11.21345,
+      "spin": -345.82823,
+      "phase": 0.16149
+    },
+    {
+      "kind": "toad",
+      "tier": 0,
+      "start": 10,
+      "side": -1,
+      "life": 61,
+      "x": 202.04714,
+      "y": 20.81557,
+      "vx": 203.89418,
+      "vy": 131.8511,
+      "size": 34.84261,
+      "spin": 56.43458,
+      "phase": 1.54275
+    },
+    {
+      "kind": "toad",
+      "tier": 0,
+      "start": 15,
+      "side": 1,
+      "life": 39,
+      "x": 209.03618,
+      "y": 6.40344,
+      "vx": 216.53094,
+      "vy": 203.35629,
+      "size": 39.60962,
+      "spin": 384.15143,
+      "phase": 0.62709
+    },
+    {
+      "kind": "toad",
+      "tier": 0,
+      "start": 10,
+      "side": -1,
+      "life": 34,
+      "x": 210.55649,
+      "y": -1.48287,
+      "vx": 204.03222,
+      "vy": 114.63003,
+      "size": 31.90993,
+      "spin": 469.8938,
+      "phase": 5.86811
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 74,
+      "side": -1,
+      "life": 51,
+      "x": 199.2279,
+      "y": -18.00575,
+      "vx": 168.87278,
+      "vy": 135.36922,
+      "size": 12.88191,
+      "spin": 386.69131,
+      "phase": 5.74154
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 75,
+      "side": 1,
+      "life": 42,
+      "x": 232.56335,
+      "y": 20.63119,
+      "vx": 67.16817,
+      "vy": 250.82939,
+      "size": 17.68012,
+      "spin": 327.41826,
+      "phase": 0.53764
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 75,
+      "side": -1,
+      "life": 59,
+      "x": 238.65197,
+      "y": -22.33613,
+      "vx": 134.03512,
+      "vy": 184.35869,
+      "size": 24.53514,
+      "spin": 138.24705,
+      "phase": 5.45687
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 77,
+      "side": 1,
+      "life": 33,
+      "x": 213.95415,
+      "y": -22.4124,
+      "vx": 179.87404,
+      "vy": 266.01306,
+      "size": 17.59362,
+      "spin": 409.54981,
+      "phase": 5.10209
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 79,
+      "side": -1,
+      "life": 56,
+      "x": 216.09559,
+      "y": 19.66725,
+      "vx": 200.33902,
+      "vy": 215.83572,
+      "size": 18.52676,
+      "spin": 176.56005,
+      "phase": 2.57851
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 72,
+      "side": 1,
+      "life": 42,
+      "x": 224.73477,
+      "y": -3.93751,
+      "vx": 95.09213,
+      "vy": 221.10301,
+      "size": 18.78365,
+      "spin": -276.31104,
+      "phase": 5.03033
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 73,
+      "side": -1,
+      "life": 51,
+      "x": 216.74795,
+      "y": 23.17294,
+      "vx": 109.52927,
+      "vy": 173.39326,
+      "size": 13.5858,
+      "spin": -111.89811,
+      "phase": 2.15751
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 74,
+      "side": 1,
+      "life": 30,
+      "x": 219.49846,
+      "y": 21.90371,
+      "vx": 113.27957,
+      "vy": 133.43538,
+      "size": 15.89232,
+      "spin": -239.66534,
+      "phase": 4.76276
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 75,
+      "side": -1,
+      "life": 60,
+      "x": 224.55326,
+      "y": -24.62408,
+      "vx": 91.52023,
+      "vy": 234.83779,
+      "size": 22.85068,
+      "spin": 218.49691,
+      "phase": 0.73251
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 78,
+      "side": 1,
+      "life": 30,
+      "x": 194.67865,
+      "y": 11.36211,
+      "vx": 78.7362,
+      "vy": 246.37615,
+      "size": 12.5587,
+      "spin": -99.04218,
+      "phase": 3.86673
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 74,
+      "side": -1,
+      "life": 49,
+      "x": 210.92998,
+      "y": 17.92484,
+      "vx": 137.75278,
+      "vy": 132.47772,
+      "size": 20.55587,
+      "spin": 42.01773,
+      "phase": 6.23544
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 75,
+      "side": 1,
+      "life": 45,
+      "x": 228.35986,
+      "y": -21.19541,
+      "vx": 225.74213,
+      "vy": 263.12906,
+      "size": 21.31506,
+      "spin": -280.83629,
+      "phase": 4.07104
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 74,
+      "side": -1,
+      "life": 57,
+      "x": 236.19052,
+      "y": -19.19632,
+      "vx": 92.57802,
+      "vy": 167.61607,
+      "size": 21.12355,
+      "spin": 475.39557,
+      "phase": 5.47545
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 75,
+      "side": 1,
+      "life": 30,
+      "x": 229.67792,
+      "y": 18.55343,
+      "vx": 234.76098,
+      "vy": 215.76152,
+      "size": 25.02683,
+      "spin": -277.32732,
+      "phase": 4.03917
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 74,
+      "side": -1,
+      "life": 52,
+      "x": 238.79757,
+      "y": -3.8467,
+      "vx": 111.89007,
+      "vy": 219.40314,
+      "size": 16.51445,
+      "spin": -371.29695,
+      "phase": 5.89237
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 73,
+      "side": 1,
+      "life": 49,
+      "x": 194.13397,
+      "y": -8.66074,
+      "vx": 130.34107,
+      "vy": 230.65827,
+      "size": 23.95478,
+      "spin": -505.72934,
+      "phase": 1.97805
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 75,
+      "side": -1,
+      "life": 55,
+      "x": 211.21404,
+      "y": 17.50731,
+      "vx": 121.68863,
+      "vy": 263.16666,
+      "size": 24.85531,
+      "spin": -435.57948,
+      "phase": 1.30585
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 79,
+      "side": 1,
+      "life": 53,
+      "x": 194.75127,
+      "y": 14.00078,
+      "vx": 195.04077,
+      "vy": 252.69161,
+      "size": 12.95261,
+      "spin": 194.35627,
+      "phase": 2.19458
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 80,
+      "side": -1,
+      "life": 60,
+      "x": 212.97022,
+      "y": -14.88747,
+      "vx": 140.51125,
+      "vy": 138.32499,
+      "size": 19.04026,
+      "spin": -85.52156,
+      "phase": 2.62635
+    },
+    {
+      "kind": "coin",
+      "tier": 1,
+      "start": 75,
+      "side": 1,
+      "life": 59,
+      "x": 202.39609,
+      "y": -3.06463,
+      "vx": 93.98239,
+      "vy": 98.29056,
+      "size": 14.71744,
+      "spin": 25.19054,
+      "phase": 2.26889
+    },
+    {
+      "kind": "toad",
+      "tier": 1,
+      "start": 77,
+      "side": -1,
+      "life": 34,
+      "x": 239.83773,
+      "y": 10.81187,
+      "vx": 69.68748,
+      "vy": 136.37355,
+      "size": 39.37923,
+      "spin": -345.57745,
+      "phase": 0.07996
+    },
+    {
+      "kind": "toad",
+      "tier": 1,
+      "start": 76,
+      "side": 1,
+      "life": 45,
+      "x": 210.03567,
+      "y": 3.28271,
+      "vx": 160.53625,
+      "vy": 236.60332,
+      "size": 39.79059,
+      "spin": 313.58511,
+      "phase": 1.73063
+    },
+    {
+      "kind": "toad",
+      "tier": 1,
+      "start": 75,
+      "side": -1,
+      "life": 28,
+      "x": 203.46926,
+      "y": 1.68069,
+      "vx": 178.95905,
+      "vy": 128.07055,
+      "size": 35.88999,
+      "spin": 495.31074,
+      "phase": 0.82021
+    },
+    {
+      "kind": "toad",
+      "tier": 1,
+      "start": 73,
+      "side": 1,
+      "life": 51,
+      "x": 238.14411,
+      "y": -19.59462,
+      "vx": 230.06864,
+      "vy": 266.43255,
+      "size": 33.85855,
+      "spin": 261.81743,
+      "phase": 4.37463
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 128,
+      "side": -1,
+      "life": 40,
+      "x": 197.18926,
+      "y": -13.59215,
+      "vx": 195.91844,
+      "vy": 153.02736,
+      "size": 15.34164,
+      "spin": 173.43685,
+      "phase": 6.26725
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 127,
+      "side": 1,
+      "life": 49,
+      "x": 227.50138,
+      "y": 14.98295,
+      "vx": 213.8251,
+      "vy": 265.30215,
+      "size": 25.34731,
+      "spin": -468.86117,
+      "phase": 5.44883
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 129,
+      "side": -1,
+      "life": 28,
+      "x": 216.09112,
+      "y": -10.12348,
+      "vx": 154.2446,
+      "vy": 211.00524,
+      "size": 16.7749,
+      "spin": 90.25322,
+      "phase": 2.97989
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 131,
+      "side": 1,
+      "life": 32,
+      "x": 210.88428,
+      "y": -12.63861,
+      "vx": 202.33235,
+      "vy": 234.94201,
+      "size": 21.3703,
+      "spin": -456.03034,
+      "phase": 2.70532
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 129,
+      "side": -1,
+      "life": 48,
+      "x": 240.15714,
+      "y": -9.45602,
+      "vx": 132.78978,
+      "vy": 116.87619,
+      "size": 19.03057,
+      "spin": 494.35419,
+      "phase": 0.62357
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 132,
+      "side": 1,
+      "life": 36,
+      "x": 200.03355,
+      "y": -12.30048,
+      "vx": 98.15401,
+      "vy": 125.11351,
+      "size": 11.61514,
+      "spin": -317.81598,
+      "phase": 4.40651
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 124,
+      "side": -1,
+      "life": 42,
+      "x": 215.36455,
+      "y": -15.94154,
+      "vx": 148.91379,
+      "vy": 191.99757,
+      "size": 25.48475,
+      "spin": 223.82237,
+      "phase": 3.82719
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 132,
+      "side": 1,
+      "life": 57,
+      "x": 212.73617,
+      "y": -25.23221,
+      "vx": 139.75229,
+      "vy": 224.53175,
+      "size": 16.82473,
+      "spin": -45.48879,
+      "phase": 1.17107
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 127,
+      "side": -1,
+      "life": 53,
+      "x": 218.58492,
+      "y": 1.87161,
+      "vx": 67.42835,
+      "vy": 247.28007,
+      "size": 20.35958,
+      "spin": 132.25679,
+      "phase": 1.46489
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 128,
+      "side": 1,
+      "life": 30,
+      "x": 234.15552,
+      "y": 9.65676,
+      "vx": 127.25001,
+      "vy": 147.08721,
+      "size": 18.80068,
+      "spin": 49.00243,
+      "phase": 1.06421
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 128,
+      "side": -1,
+      "life": 58,
+      "x": 195.88819,
+      "y": -18.27949,
+      "vx": 163.946,
+      "vy": 203.36402,
+      "size": 24.40725,
+      "spin": -289.48547,
+      "phase": 4.75366
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 128,
+      "side": 1,
+      "life": 29,
+      "x": 223.38249,
+      "y": -7.81684,
+      "vx": 229.38405,
+      "vy": 120.57136,
+      "size": 16.55376,
+      "spin": -350.54336,
+      "phase": 0.04448
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 127,
+      "side": -1,
+      "life": 47,
+      "x": 226.27529,
+      "y": 4.84729,
+      "vx": 71.8508,
+      "vy": 232.58186,
+      "size": 19.54389,
+      "spin": -10.05604,
+      "phase": 2.29965
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 126,
+      "side": 1,
+      "life": 47,
+      "x": 209.99114,
+      "y": 14.70796,
+      "vx": 183.83941,
+      "vy": 235.8046,
+      "size": 13.94697,
+      "spin": -502.1547,
+      "phase": 2.9002
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 126,
+      "side": -1,
+      "life": 43,
+      "x": 210.93723,
+      "y": -3.64217,
+      "vx": 203.23857,
+      "vy": 179.63033,
+      "size": 18.36005,
+      "spin": 168.59693,
+      "phase": 5.57472
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 129,
+      "side": 1,
+      "life": 30,
+      "x": 233.21497,
+      "y": 15.5471,
+      "vx": 106.57207,
+      "vy": 141.78191,
+      "size": 23.70055,
+      "spin": 42.57502,
+      "phase": 4.34343
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 131,
+      "side": -1,
+      "life": 47,
+      "x": 200.22766,
+      "y": -3.67269,
+      "vx": 73.40059,
+      "vy": 225.42222,
+      "size": 16.79958,
+      "spin": 429.94976,
+      "phase": 0.77849
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 126,
+      "side": 1,
+      "life": 57,
+      "x": 218.02279,
+      "y": 18.98741,
+      "vx": 126.58278,
+      "vy": 110.17663,
+      "size": 25.92849,
+      "spin": 315.08746,
+      "phase": 2.37033
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 127,
+      "side": -1,
+      "life": 53,
+      "x": 230.52407,
+      "y": -25.66063,
+      "vx": 219.74302,
+      "vy": 120.02028,
+      "size": 12.634,
+      "spin": 335.36121,
+      "phase": 4.20925
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 131,
+      "side": 1,
+      "life": 52,
+      "x": 240.19206,
+      "y": -7.10469,
+      "vx": 85.40758,
+      "vy": 112.4286,
+      "size": 12.3971,
+      "spin": -195.73441,
+      "phase": 4.51234
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 127,
+      "side": -1,
+      "life": 53,
+      "x": 232.05318,
+      "y": 8.44676,
+      "vx": 196.46447,
+      "vy": 131.44747,
+      "size": 20.6428,
+      "spin": 308.712,
+      "phase": 5.33676
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 125,
+      "side": 1,
+      "life": 49,
+      "x": 228.08186,
+      "y": 21.25247,
+      "vx": 96.54484,
+      "vy": 158.86449,
+      "size": 15.39797,
+      "spin": 413.78369,
+      "phase": 2.36988
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 125,
+      "side": -1,
+      "life": 29,
+      "x": 214.77237,
+      "y": 14.6221,
+      "vx": 151.52958,
+      "vy": 162.34068,
+      "size": 25.06603,
+      "spin": 59.16222,
+      "phase": 5.05914
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 126,
+      "side": 1,
+      "life": 59,
+      "x": 222.48854,
+      "y": -0.49924,
+      "vx": 151.36378,
+      "vy": 123.49116,
+      "size": 21.42613,
+      "spin": -197.2924,
+      "phase": 0.83008
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 132,
+      "side": -1,
+      "life": 57,
+      "x": 239.80922,
+      "y": 13.74382,
+      "vx": 164.37233,
+      "vy": 144.42013,
+      "size": 13.94021,
+      "spin": 486.26052,
+      "phase": 1.83064
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 129,
+      "side": 1,
+      "life": 60,
+      "x": 228.41945,
+      "y": 5.12568,
+      "vx": 205.89413,
+      "vy": 227.95586,
+      "size": 16.63618,
+      "spin": -170.8128,
+      "phase": 1.93058
+    },
+    {
+      "kind": "coin",
+      "tier": 2,
+      "start": 130,
+      "side": -1,
+      "life": 34,
+      "x": 224.23879,
+      "y": 6.45574,
+      "vx": 94.0625,
+      "vy": 124.30384,
+      "size": 19.03427,
+      "spin": 35.27338,
+      "phase": 3.69975
+    },
+    {
+      "kind": "toad",
+      "tier": 2,
+      "start": 128,
+      "side": -1,
+      "life": 51,
+      "x": 240.30395,
+      "y": -19.32149,
+      "vx": 173.18656,
+      "vy": 119.472,
+      "size": 31.93391,
+      "spin": 16.02398,
+      "phase": 5.50274
+    },
+    {
+      "kind": "toad",
+      "tier": 2,
+      "start": 127,
+      "side": 1,
+      "life": 50,
+      "x": 222.73955,
+      "y": -20.87981,
+      "vx": 234.33672,
+      "vy": 153.3127,
+      "size": 41.65566,
+      "spin": -183.39539,
+      "phase": 3.32981
+    },
+    {
+      "kind": "toad",
+      "tier": 2,
+      "start": 126,
+      "side": -1,
+      "life": 38,
+      "x": 215.28856,
+      "y": -16.29399,
+      "vx": 230.43764,
+      "vy": 130.45909,
+      "size": 25.37643,
+      "spin": -282.68286,
+      "phase": 0.86184
+    },
+    {
+      "kind": "toad",
+      "tier": 2,
+      "start": 124,
+      "side": 1,
+      "life": 48,
+      "x": 233.7778,
+      "y": -23.62012,
+      "vx": 133.84531,
+      "vy": 173.79991,
+      "size": 37.74962,
+      "spin": 117.8363,
+      "phase": 6.06459
+    },
+    {
+      "kind": "toad",
+      "tier": 2,
+      "start": 124,
+      "side": -1,
+      "life": 58,
+      "x": 201.95285,
+      "y": 3.60879,
+      "vx": 169.0926,
+      "vy": 200.18688,
+      "size": 36.8741,
+      "spin": -278.97384,
+      "phase": 5.30857
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 174,
+      "side": -1,
+      "life": 56,
+      "x": 197.77353,
+      "y": 0.6341,
+      "vx": 140.72122,
+      "vy": 122.23866,
+      "size": 19.33147,
+      "spin": -350.96522,
+      "phase": 4.61594
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 175,
+      "side": 1,
+      "life": 44,
+      "x": 209.77984,
+      "y": -8.8237,
+      "vx": 162.68821,
+      "vy": 189.0889,
+      "size": 17.97281,
+      "spin": 486.15811,
+      "phase": 6.10072
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 176,
+      "side": -1,
+      "life": 30,
+      "x": 202.3699,
+      "y": 10.96288,
+      "vx": 131.23364,
+      "vy": 146.31411,
+      "size": 17.20869,
+      "spin": -360.63211,
+      "phase": 5.98019
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 180,
+      "side": 1,
+      "life": 41,
+      "x": 203.86936,
+      "y": 20.39198,
+      "vx": 142.63165,
+      "vy": 185.10451,
+      "size": 16.55704,
+      "spin": 93.04923,
+      "phase": 1.75721
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 178,
+      "side": -1,
+      "life": 44,
+      "x": 217.91715,
+      "y": 4.44851,
+      "vx": 137.11286,
+      "vy": 225.66168,
+      "size": 22.9045,
+      "spin": -153.01026,
+      "phase": 6.11786
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 176,
+      "side": 1,
+      "life": 34,
+      "x": 235.08512,
+      "y": -15.16809,
+      "vx": 119.54967,
+      "vy": 134.5568,
+      "size": 19.2514,
+      "spin": -484.87286,
+      "phase": 4.61489
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 179,
+      "side": -1,
+      "life": 43,
+      "x": 230.15526,
+      "y": -2.18365,
+      "vx": 98.09834,
+      "vy": 153.33615,
+      "size": 17.93749,
+      "spin": 164.85397,
+      "phase": 4.18849
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 180,
+      "side": 1,
+      "life": 32,
+      "x": 212.24499,
+      "y": 16.52888,
+      "vx": 205.15284,
+      "vy": 141.09663,
+      "size": 22.15685,
+      "spin": 424.64535,
+      "phase": 5.8201
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 179,
+      "side": -1,
+      "life": 44,
+      "x": 222.99773,
+      "y": 0.05714,
+      "vx": 160.97563,
+      "vy": 147.64694,
+      "size": 21.49568,
+      "spin": -508.56504,
+      "phase": 2.5248
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 175,
+      "side": 1,
+      "life": 54,
+      "x": 234.80572,
+      "y": -15.30299,
+      "vx": 212.25098,
+      "vy": 150.25187,
+      "size": 15.86865,
+      "spin": -439.91056,
+      "phase": 4.40341
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 174,
+      "side": -1,
+      "life": 39,
+      "x": 238.28199,
+      "y": -24.23028,
+      "vx": 206.82618,
+      "vy": 205.81038,
+      "size": 18.87012,
+      "spin": 268.4708,
+      "phase": 0.57552
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 182,
+      "side": 1,
+      "life": 59,
+      "x": 235.54568,
+      "y": -11.8104,
+      "vx": 194.79071,
+      "vy": 171.72105,
+      "size": 14.93222,
+      "spin": 373.21347,
+      "phase": 0.79408
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 181,
+      "side": -1,
+      "life": 34,
+      "x": 217.28541,
+      "y": 9.62912,
+      "vx": 221.53132,
+      "vy": 213.27388,
+      "size": 24.85647,
+      "spin": -141.43489,
+      "phase": 4.37234
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 175,
+      "side": 1,
+      "life": 38,
+      "x": 233.13732,
+      "y": 11.6191,
+      "vx": 96.45896,
+      "vy": 197.33447,
+      "size": 13.6928,
+      "spin": -79.17382,
+      "phase": 6.10665
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 176,
+      "side": -1,
+      "life": 34,
+      "x": 202.65218,
+      "y": 23.45454,
+      "vx": 224.53801,
+      "vy": 180.6707,
+      "size": 13.31149,
+      "spin": -495.39997,
+      "phase": 1.18382
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 175,
+      "side": 1,
+      "life": 59,
+      "x": 237.08986,
+      "y": 4.27424,
+      "vx": 69.72642,
+      "vy": 212.06455,
+      "size": 16.28356,
+      "spin": -474.4315,
+      "phase": 1.99691
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 178,
+      "side": -1,
+      "life": 41,
+      "x": 213.53789,
+      "y": -19.29301,
+      "vx": 101.1312,
+      "vy": 140.17367,
+      "size": 25.63587,
+      "spin": -434.05177,
+      "phase": 3.15874
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 177,
+      "side": 1,
+      "life": 34,
+      "x": 217.07489,
+      "y": 22.57571,
+      "vx": 93.77546,
+      "vy": 162.80023,
+      "size": 23.87536,
+      "spin": -121.37215,
+      "phase": 5.29937
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 176,
+      "side": -1,
+      "life": 36,
+      "x": 202.83928,
+      "y": 16.02976,
+      "vx": 205.56999,
+      "vy": 187.99284,
+      "size": 12.60254,
+      "spin": -71.41456,
+      "phase": 3.06971
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 179,
+      "side": 1,
+      "life": 43,
+      "x": 229.25328,
+      "y": 11.69498,
+      "vx": 65.93303,
+      "vy": 93.50635,
+      "size": 17.88409,
+      "spin": -221.55531,
+      "phase": 4.62171
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 177,
+      "side": -1,
+      "life": 47,
+      "x": 215.0011,
+      "y": -11.1798,
+      "vx": 114.89851,
+      "vy": 209.48575,
+      "size": 15.90502,
+      "spin": 412.81521,
+      "phase": 4.10292
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 179,
+      "side": 1,
+      "life": 31,
+      "x": 225.07783,
+      "y": 10.71269,
+      "vx": 180.70768,
+      "vy": 194.91295,
+      "size": 24.34217,
+      "spin": -0.92051,
+      "phase": 2.5349
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 174,
+      "side": -1,
+      "life": 32,
+      "x": 195.45033,
+      "y": -24.86409,
+      "vx": 156.70649,
+      "vy": 150.8837,
+      "size": 14.36423,
+      "spin": 272.12463,
+      "phase": 3.53085
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 179,
+      "side": 1,
+      "life": 38,
+      "x": 229.04641,
+      "y": -7.16523,
+      "vx": 166.20155,
+      "vy": 194.62881,
+      "size": 25.32185,
+      "spin": -205.50133,
+      "phase": 3.35505
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 177,
+      "side": -1,
+      "life": 56,
+      "x": 228.39961,
+      "y": -22.02203,
+      "vx": 148.70232,
+      "vy": 133.11669,
+      "size": 24.73446,
+      "spin": 407.73818,
+      "phase": 5.67221
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 179,
+      "side": 1,
+      "life": 32,
+      "x": 218.66011,
+      "y": -2.5788,
+      "vx": 112.42443,
+      "vy": 181.64263,
+      "size": 11.59617,
+      "spin": -283.51374,
+      "phase": 1.99774
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 182,
+      "side": -1,
+      "life": 51,
+      "x": 236.23756,
+      "y": -25.97823,
+      "vx": 226.41944,
+      "vy": 186.67796,
+      "size": 17.37115,
+      "spin": -87.37883,
+      "phase": 3.39301
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 180,
+      "side": 1,
+      "life": 51,
+      "x": 235.79599,
+      "y": 10.04796,
+      "vx": 106.70102,
+      "vy": 206.89153,
+      "size": 23.68242,
+      "spin": -288.50371,
+      "phase": 5.86563
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 178,
+      "side": -1,
+      "life": 42,
+      "x": 229.22332,
+      "y": 20.64148,
+      "vx": 141.72674,
+      "vy": 192.97718,
+      "size": 18.02575,
+      "spin": -308.06712,
+      "phase": 4.93131
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 177,
+      "side": 1,
+      "life": 30,
+      "x": 235.79616,
+      "y": -23.1862,
+      "vx": 78.94779,
+      "vy": 219.2433,
+      "size": 24.59592,
+      "spin": -496.85615,
+      "phase": 0.84469
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 174,
+      "side": -1,
+      "life": 40,
+      "x": 236.93214,
+      "y": -1.40065,
+      "vx": 151.34261,
+      "vy": 141.08519,
+      "size": 18.29029,
+      "spin": -286.59367,
+      "phase": 0.02975
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 177,
+      "side": 1,
+      "life": 41,
+      "x": 230.12683,
+      "y": -14.71337,
+      "vx": 125.55158,
+      "vy": 95.1615,
+      "size": 15.8344,
+      "spin": -317.05233,
+      "phase": 5.8866
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 175,
+      "side": -1,
+      "life": 50,
+      "x": 196.79298,
+      "y": -18.54062,
+      "vx": 89.50962,
+      "vy": 204.15711,
+      "size": 17.9703,
+      "spin": -323.1062,
+      "phase": 4.09772
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 181,
+      "side": 1,
+      "life": 36,
+      "x": 230.32432,
+      "y": -1.90174,
+      "vx": 121.50872,
+      "vy": 199.83293,
+      "size": 22.59329,
+      "spin": -22.34973,
+      "phase": 0.75762
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 182,
+      "side": -1,
+      "life": 28,
+      "x": 235.63479,
+      "y": -17.71964,
+      "vx": 89.51722,
+      "vy": 113.77054,
+      "size": 13.16575,
+      "spin": -342.87517,
+      "phase": 0.81271
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 176,
+      "side": 1,
+      "life": 56,
+      "x": 197.91111,
+      "y": -17.83309,
+      "vx": 86.12651,
+      "vy": 125.63092,
+      "size": 15.8098,
+      "spin": 152.16401,
+      "phase": 2.76723
+    },
+    {
+      "kind": "coin",
+      "tier": 3,
+      "start": 175,
+      "side": -1,
+      "life": 44,
+      "x": 205.38404,
+      "y": -23.74913,
+      "vx": 203.32841,
+      "vy": 226.15836,
+      "size": 13.32876,
+      "spin": 151.07375,
+      "phase": 6.14099
+    },
+    {
+      "kind": "toad",
+      "tier": 3,
+      "start": 179,
+      "side": -1,
+      "life": 32,
+      "x": 224.19785,
+      "y": -21.59465,
+      "vx": 108.76222,
+      "vy": 181.57982,
+      "size": 34.48553,
+      "spin": 134.82576,
+      "phase": 0.82482
+    },
+    {
+      "kind": "toad",
+      "tier": 3,
+      "start": 174,
+      "side": 1,
+      "life": 50,
+      "x": 218.78451,
+      "y": -16.78613,
+      "vx": 219.91737,
+      "vy": 192.47223,
+      "size": 33.7049,
+      "spin": 470.98785,
+      "phase": 3.79305
+    },
+    {
+      "kind": "toad",
+      "tier": 3,
+      "start": 179,
+      "side": -1,
+      "life": 57,
+      "x": 229.69557,
+      "y": -23.18982,
+      "vx": 91.00456,
+      "vy": 100.23752,
+      "size": 24.24356,
+      "spin": -499.92831,
+      "phase": 1.89002
+    },
+    {
+      "kind": "toad",
+      "tier": 3,
+      "start": 180,
+      "side": 1,
+      "life": 51,
+      "x": 234.36991,
+      "y": -2.95431,
+      "vx": 138.37912,
+      "vy": 121.1624,
+      "size": 27.24105,
+      "spin": 358.41707,
+      "phase": 5.65882
+    },
+    {
+      "kind": "toad",
+      "tier": 3,
+      "start": 175,
+      "side": -1,
+      "life": 40,
+      "x": 227.6907,
+      "y": -19.05201,
+      "vx": 178.74019,
+      "vy": 111.02137,
+      "size": 35.63892,
+      "spin": 388.52569,
+      "phase": 4.68685
+    },
+    {
+      "kind": "toad",
+      "tier": 3,
+      "start": 180,
+      "side": 1,
+      "life": 36,
+      "x": 212.01527,
+      "y": -19.68319,
+      "vx": 189.28134,
+      "vy": 148.31556,
+      "size": 26.08673,
+      "spin": -393.52612,
+      "phase": 5.78424
+    },
+    {
+      "kind": "toad",
+      "tier": 3,
+      "start": 176,
+      "side": -1,
+      "life": 29,
+      "x": 212.02981,
+      "y": 2.39842,
+      "vx": 96.058,
+      "vy": 264.21528,
+      "size": 32.32184,
+      "spin": 189.98708,
+      "phase": 2.78173
+    }
+  ],
+  "particleGravityPxPerSecond2": 660,
+  "engine": {
+    "trigger": "win > bet",
+    "skip": "tap",
+    "turboDurationMultiplier": 0.5,
+    "reducedMotion": {
+      "flash": false,
+      "sweep": false,
+      "particles": false,
+      "scale": false
+    },
+    "speakerCues": "not included",
+    "drawValueAndTitle": "engine only"
+  }
+}
