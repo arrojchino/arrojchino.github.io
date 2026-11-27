@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<title>Hollow Watch | P2 Greybox</title>
+	<link rel="icon" href="data:,">
+  <script type="module" crossorigin src="./assets/index-BMVZWIZx.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DnSQ_kik.css">
+</head>
+<body>
+	<main id="stage" aria-label="Hollow Watch development greybox" data-phase="idle">
+		<div id="view" aria-hidden="true"></div>
+		<div id="glyphs" aria-hidden="true"></div>
+		<div id="veil" aria-hidden="true"></div>
+		<header id="logo"><h1>Hollow Watch</h1><span id="disclosure">DEV ONLY / PLAY MONEY</span></header>
+		<div id="feature">
+			<strong id="status" role="status">Starting renderer</strong><small id="backend"></small>
+			<div id="boss-hud" hidden>
+				<div id="boss-hp" role="meter" aria-label="Boss health"><i></i><i></i><span></span></div>
+				<div id="boss-notes"><span id="boss-rounds"></span><span id="boss-bank"></span></div>
+			</div>
+		</div>
+		<div id="banner" hidden aria-hidden="true"><strong></strong><span></span></div>
+		<div id="credit" hidden aria-hidden="true"></div>
+		<div id="hero-tag" aria-hidden="true">INVESTIGATOR</div>
+		<footer id="hud">
+			<div class="readouts">
+				<span>Balance <b id="balance">...</b></span>
+				<span>Bet <b id="bet">...</b></span>
+				<span>Round win <b id="win">0.00x</b></span>
+			</div>
+			<div class="controls">
+				<select id="case" aria-label="Recorded case" disabled></select>
+				<button id="replay" type="button" disabled>Replay</button>
+				<button id="spin" type="button" disabled>Spin</button>
+			</div>
+		</footer>
+		<details id="transcript"><summary>Round grid</summary><pre id="grid">No reels landed yet.</pre></details>
+	</main>
+</body>
+</html>
